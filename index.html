@@ -5,285 +5,349 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trinetra Bhojanalaya – Chole Bhature & Pav Bhaji Center</title>
 
+<!-- SEO -->
+<meta name="description" content="Trinetra Bhojanalaya – Fresh Chole Bhature, Pav Bhaji & Parathas in Medahalli Bengaluru. Order on WhatsApp.">
+<meta name="keywords" content="Chole Bhature, Pav Bhaji, Paratha, Medahalli, KR Puram, Food Stall, Street Food">
+
+<!-- Social Sharing -->
+<meta property="og:title" content="Trinetra Bhojanalaya – Authentic North Indian Food in Medahalli">
+<meta property="og:description" content="Freshly prepared Chole Bhature, Pav Bhaji & Parathas. Order now!">
+<meta property="og:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
+<meta property="og:url" content="https://trinetra-bhojanalaya.github.io">
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
-    :root {
-        --primary: #d68c2f; /* warm orange – appetite booster */
-        --dark-brown: #4e342e; 
-        --light-bg: #fff8f0; 
-        --text-dark: #3b2f2f;
-    }
 
-    body {
-        margin: 0;
-        background: var(--light-bg);
-        font-family: 'Poppins', sans-serif;
-        color: var(--text-dark);
-    }
+/* COLOR SYSTEM */
+:root {
+    --primary: #d68c2f;
+    --primary-dark: #b97622;
+    --brown: #4e342e;
+    --light-bg: #fff8f0;
+    --white: #ffffff;
+    --text: #3b2f2f;
+    --discount-red: #d32f2f;
+    --discount-green: #2e7d32;
+}
 
-    /* NAVBAR */
-    .navbar {
-        background: var(--primary);
-        padding: 12px 18px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
+/* GLOBAL RESET */
+body {
+    margin: 0;
+    background: var(--light-bg);
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+}
 
-    .navbar img {
-        height: 46px;
-        border-radius: 6px;
-    }
+/* LOADER */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader-circle {
+    width: 60px;
+    height: 60px;
+    border: 6px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-    .navbar-title {
-        font-size: 18px;
-        font-weight: 700;
-        color: white;
-    }
+/* NAVBAR */
+.navbar {
+    background: var(--primary);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+.navbar img {
+    height: 45px;
+    border-radius: 6px;
+}
+.navbar-title {
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 28px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+}
+.nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--primary);
+    border-radius: 10px;
+    padding: 15px 0;
+    animation: fadeDown 0.3s ease;
+}
+.nav-links a {
+    padding: 14px 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+.nav-active { display: flex; }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: var(--primary);
-        padding: 14px 0;
-        margin-top: 10px;
-        border-radius: 8px;
-        width: 100%;
-    }
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        padding: 12px 20px;
-        font-size: 16px;
-        font-weight: 600;
-    }
+/* HERO */
+.hero {
+    background: white;
+    margin: 16px;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    animation: fade 1s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+@keyframes fade { from {opacity:0;} to {opacity:1;} }
 
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 4px;
-    }
+.hero h1 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--brown);
+}
+.hero p { margin-top: 6px; font-size: 14px; }
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 14px 22px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+}
 
-    .hamburger span {
-        width: 26px;
-        height: 3.5px;
-        background: white;
-        border-radius: 5px;
-        transition: 0.3s;
-    }
+/* SECTION */
+.section {
+    background: white;
+    margin: 16px;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
 
-    .nav-active {
-        display: flex;
-        animation: fadeDown 0.3s ease;
-    }
+/* MENU */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    background: #fff5e6;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    align-items: center;
+}
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.menu-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.old-price {
+    color: var(--discount-red);
+    text-decoration: line-through;
+    font-size: 13px;
+}
+.new-price {
+    color: var(--discount-green);
+    font-weight: 700;
+    font-size: 18px;
+}
 
-    @keyframes fadeDown {
-        from {opacity: 0; transform: translateY(-8px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
+/* GALLERY SLIDER */
+.slider {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.slider img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+}
 
-    /* HERO */
-    .hero {
-        padding: 18px;
-        background: white;
-        margin: 14px;
-        border-radius: 12px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
+/* REVIEWS */
+.review-card {
+    background: #fff6e9;
+    padding: 14px;
+    border-radius: 12px;
+    margin: 10px 0;
+    display: flex;
+    gap: 12px;
+}
+.review-card img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.review-stars { color: #ffb400; }
 
-    .hero h1 {
-        margin: 0;
-        font-size: 22px;
-        color: var(--dark-brown);
-    }
+/* ORDER FORM */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+input, select, textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
 
-    .btn {
-        display: inline-block;
-        padding: 14px 22px;
-        background: var(--primary);
-        color: white;
-        font-weight: 700;
-        border-radius: 10px;
-        text-decoration: none;
-        margin-top: 8px;
-        font-size: 16px;
-    }
+/* FLOATING BUTTONS */
+.float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    padding: 16px;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 30;
+}
+.call-btn {
+    bottom: 90px;
+    background: #ff4444;
+}
 
-    /* MENU SECTION */
-    .section {
-        margin: 18px;
-        background: white;
-        padding: 18px;
-        border-radius: 14px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
 
-    .section h2 {
-        margin-top: 0;
-        color: var(--dark-brown);
-    }
-
-    .menu-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff5e6;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 10px;
-    }
-
-    .menu-item img {
-        width: 80px;
-        height: 60px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-right: 10px;
-    }
-
-    .menu-left {
-        display: flex;
-        align-items: center;
-    }
-
-    /* GALLERY */
-    .gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .gallery img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    /* CONTACT */
-    .contact-box a {
-        color: var(--primary);
-        font-weight: 700;
-        text-decoration: none;
-    }
-
-    footer {
-        text-align: center;
-        padding: 20px;
-        color: #6b6b6b;
-        font-size: 14px;
-    }
-
-    /* DESKTOP TWEAKS */
-    @media(min-width: 768px) {
-        .nav-links {
-            display: flex !important;
-            flex-direction: row;
-            background: none;
-            width: auto;
-            margin: 0;
-            padding: 0;
-        }
-
-        .hamburger {display: none;}
-    }
-
+/* RESPONSIVE */
+@media(min-width: 760px){
+    .nav-links { display: flex !important; flex-direction: row; background:none; }
+    .hamburger { display: none; }
+}
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader"><div class="loader-circle"></div></div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
-    <img src="images/logo.jpg" alt="Logo">
+    <img src="images/logo.jpg">
     <div class="navbar-title">Trinetra Bhojanalaya</div>
-
     <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <div id="mobileMenu" class="nav-links">
-        <a href="#menu">Menu</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-        <a href="https://wa.me/917619126420" target="_blank">Order on WhatsApp</a>
+        <span></span><span></span><span></span>
     </div>
 </nav>
+
+<div id="navMenu" class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
     <h1>Fresh Chole Bhature & Pav Bhaji in Medahalli</h1>
-    <p>Authentic homemade taste served fresh daily.</p>
+    <p>Authentic North Indian taste served daily.</p>
     <a href="https://wa.me/917619126420" class="btn">Order on WhatsApp</a>
 </section>
 
 <!-- MENU -->
-<section class="section" id="menu">
-    <h2>Our Menu</h2>
+<section id="menu" class="section">
+    <h2>Menu</h2>
 
-    <h3>Morning (6am – 10am)</h3>
-
+    <!-- Chole Bhature -->
     <div class="menu-item">
         <div class="menu-left">
             <img src="images/chole_bhature.jpg">
             <div>
                 <strong>Chole Bhature</strong><br>
-                <small>Served with curd, salad, aloo sabji</small>
+                <span class="old-price">₹90</span> &nbsp;
+                <span class="new-price">₹80</span>
             </div>
         </div>
-        <span><strong>₹80</strong></span>
     </div>
 
+    <!-- Gobi Paratha -->
     <div class="menu-item">
         <div class="menu-left">
             <img src="images/gobi-paratha.jpg">
             <div>
                 <strong>Gobi Paratha</strong><br>
-                <small>Served with curd, salad, chutney</small>
+                <span class="old-price">₹95</span> &nbsp;
+                <span class="new-price">₹80</span>
             </div>
         </div>
-        <span><strong>₹80</strong></span>
     </div>
 
+    <!-- Aloo Paratha -->
     <div class="menu-item">
         <div class="menu-left">
             <img src="images/aloo-paratha.jpg">
             <div>
                 <strong>Aloo Paratha</strong><br>
-                <small>Served with curd, salad, chutney</small>
+                <span class="old-price">₹75</span> &nbsp;
+                <span class="new-price">₹60</span>
             </div>
         </div>
-        <span><strong>₹60</strong></span>
     </div>
 
-    <h3>Evening (4pm – 10pm)</h3>
-
+    <!-- Pav Bhaji -->
     <div class="menu-item">
         <div class="menu-left">
             <img src="images/pav-bhaji.jpg">
             <div>
                 <strong>Pav Bhaji</strong><br>
-                <small>Served with salad & chutney</small>
+                <span class="old-price">₹110</span> &nbsp;
+                <span class="new-price">₹90</span>
             </div>
         </div>
-        <span><strong>₹90</strong></span>
     </div>
+
 </section>
 
-<!-- GALLERY -->
-<section class="section" id="gallery">
+<!-- GALLERY SLIDER -->
+<section id="gallery" class="section">
     <h2>Gallery</h2>
-    <div class="gallery">
+    <div class="slider">
         <img src="images/chole_bhature.jpg">
         <img src="images/gobi-paratha.jpg">
         <img src="images/aloo-paratha.jpg">
@@ -293,30 +357,108 @@
     </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-box">
-        <p><strong>Phone / WhatsApp:</strong> 
-            <a href="https://wa.me/917619126420">+91 76191 26420</a>
-        </p>
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+    <h2>Customer Reviews</h2>
 
-        <p><strong>Address:</strong>  
-        Kithaganuru Main Road, Parvathi Nagar, Medahalli, Bengaluru – 560049  
-        <br>Next to Big Day Super Market</p>
+    <div class="review-card">
+        <img src="images/chole_bhature.jpg">
+        <div>
+            <div class="review-stars">★★★★★</div>
+            “Best chole bhature near KR Puram!”
+        </div>
+    </div>
 
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kithaganuru+Main+Road+Medahalli"> <span style="color: white;">Open in Maps</span> </a>
+    <div class="review-card">
+        <img src="images/pav-bhaji.jpg">
+        <div>
+            <div class="review-stars">★★★★★</div>
+            “Pav Bhaji is delicious and fresh!”
+        </div>
+    </div>
+
+    <div class="review-card">
+        <img src="images/aloo-paratha.jpg">
+        <div>
+            <div class="review-stars">★★★★☆</div>
+            “Aloo paratha tastes homely & soft.”
+        </div>
     </div>
 </section>
 
+<!-- ORDER FORM -->
+<section id="order" class="section">
+    <h2>Order Online</h2>
+    <div class="form-box">
+        <select id="dish">
+            <option value="Chole Bhature">Chole Bhature</option>
+            <option value="Aloo Paratha">Aloo Paratha</option>
+            <option value="Gobi Paratha">Gobi Paratha</option>
+            <option value="Pav Bhaji">Pav Bhaji</option>
+        </select>
+
+        <input id="qty" type="number" min="1" value="1" placeholder="Quantity">
+
+        <select id="mode">
+            <option value="Takeaway">Takeaway</option>
+            <option value="Home Delivery">Home Delivery</option>
+        </select>
+
+        <textarea id="address" placeholder="Delivery Address (only if home delivery)"></textarea>
+
+        <button class="btn" onclick="sendOrder()">Order Now</button>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+
+    <p><strong>Phone:</strong> <a href="tel:+917619126420">+91 76191 26420</a></p>
+
+    <p><strong>Address:</strong><br>
+    Kithaganuru Main Road, Parvathi Nagar,<br>
+    Medahalli, Bengaluru – 560049</p>
+
+    <iframe width="100%" height="250" style="border-radius:14px; border:none;"
+        src="https://www.google.com/maps?q=Kithaganuru%20Main%20Road%20Medahalli%20Bengaluru&output=embed">
+    </iframe>
+</section>
+
+<!-- FLOATING BUTTONS -->
+<a class="float-btn" href="https://wa.me/917619126420">💬</a>
+<a class="float-btn call-btn" href="tel:+917619126420">📞</a>
+
 <footer>
-    © 2025 Trinetra Bhojanalaya – All rights reserved.
+    © 2025 Trinetra Bhojanalaya – All Rights Reserved.
 </footer>
 
 <script>
+
 function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("nav-active");
+    document.getElementById("navMenu").classList.toggle("nav-active");
 }
+
+/* ORDER FORM */
+function sendOrder() {
+    let dish = document.getElementById("dish").value;
+    let qty = document.getElementById("qty").value;
+    let mode = document.getElementById("mode").value;
+    let address = document.getElementById("address").value;
+
+    let msg = `Hello, I want to order:\n${dish} × ${qty}\nMode: ${mode}`;
+    if (mode === "Home Delivery") {
+        msg += `\nAddress: ${address}`;
+    }
+
+    window.location.href = `https://wa.me/917619126420?text=${encodeURIComponent(msg)}`;
+}
+
+/* LOADER REMOVE */
+window.onload = function() {
+    setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 500);
+};
+
 </script>
 
 </body>
