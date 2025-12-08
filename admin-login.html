@@ -1,45 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
 
-<link rel="stylesheet" href="assets/style.css">
-<script type="module">
-
-import { auth } from "./assets/firebase.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-window.loginAdmin = async function () {
-    const email = document.getElementById("email").value.trim();
-    const pass = document.getElementById("password").value.trim();
-
-    try {
-        await signInWithEmailAndPassword(auth, email, pass);
-        window.location.href = "admin.html";
-    } catch (err) {
-        alert("Login failed: " + err.message);
-    }
-};
-
-</script>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
 
-<section class="order-box">
+<section class="admin-login">
+
     <h1>Admin Login</h1>
 
-    <label>Email</label>
-    <input id="email" type="email" placeholder="admin@gmail.com">
-
     <label>Password</label>
-    <input id="password" type="password" placeholder="Enter password">
+    <input type="password" id="adminPass" placeholder="Enter password">
 
-    <button class="btn-primary" onclick="loginAdmin()">Login</button>
+    <button onclick="login()">Login</button>
+
 </section>
+
+<script>
+function login() {
+    if (document.getElementById("adminPass").value === "trinetra123") {
+        window.location.href = "admin.html";
+    } else {
+        alert("Incorrect password");
+    }
+}
+</script>
 
 </body>
 </html>
-
