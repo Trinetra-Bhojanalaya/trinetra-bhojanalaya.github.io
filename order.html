@@ -7,11 +7,6 @@
 
     <link rel="stylesheet" href="assets/style.css">
 
-    <!-- Load JS in correct order -->
-    <script src="assets/cart.js"></script>
-    <script src="assets/gps.js" defer></script>
-    <script src="assets/delivery.js" defer></script>
-    <script src="assets/saveOrder.js" defer></script>
 </head>
 
 <body>
@@ -57,32 +52,46 @@
 
 </section>
 
+
+<!-- LOAD SCRIPTS IN CORRECT ORDER -->
+<script src="assets/cart.js"></script>
+<script src="assets/gps.js"></script>
+<script src="assets/saveOrder.js"></script>
+<script src="assets/delivery.js"></script>
+
+
 <script>
 /* ------------ RENDER CART ON PAGE LOAD ------------ */
 
-const cart = getSavedCart(); // from cart.js
-let box = document.getElementById("cartSummary");
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const box = document.getElementById("cartSummary");
 
-if (!cart || cart.length === 0) {
-    box.innerHTML = `<p>Your cart is empty.</p>`;
-} else {
+    if (!cart.length) {
+        box.innerHTML = `<p>Your cart is empty.</p>`;
+        return;
+    }
+
     let html = `<h2>Items:</h2><ul class="cart-list">`;
 
+    let total = 0;
+
     cart.forEach(item => {
+        let subtotal = item.qty * item.price;
+        total += subtotal;
+
         html += `
             <li>
-                ${item.name} × ${item.qty}  
-                <span>₹${item.qty * item.price}</span>
+                ${item.name} × ${item.qty}
+                <span>₹${subtotal}</span>
             </li>
         `;
     });
 
-    let total = cart.reduce((sum, x) => sum + x.price * x.qty, 0);
-
     html += `</ul><h3 class="cart-total">Total: ₹${total}</h3>`;
-
     box.innerHTML = html;
 }
+
 
 /* ------------ DELIVERY VS TAKEAWAY UI ------------ */
 
@@ -104,8 +113,10 @@ function handleOrderType() {
     }
 }
 
-handleOrderType(); // run once on page load
-
+window.onload = () => {
+    loadCart();
+    handleOrderType();
+};
 </script>
 
 </body>
