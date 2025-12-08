@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order • Trinetra Bhojanalaya</title>
+    <title>Order – Trinetra Bhojanalaya</title>
 
     <link rel="stylesheet" href="assets/style.css">
 
-    <script type="module" src="assets/firebase.js"></script>
-    <script defer src="assets/delivery.js"></script>
-    <script defer src="assets/cart.js"></script>
-    <script defer src="assets/saveOrder.js"></script>
-    <script defer src="assets/gps.js"></script>
-    <script defer src="assets/ui.js"></script>
+    <script src="assets/cart.js"></script>
+    <script src="assets/delivery.js" defer></script>
 </head>
 
 <body>
@@ -20,60 +16,57 @@
 <header class="navbar">
     <div class="nav-left">
         <img src="images/logo.jpg" class="logo">
-        <span class="brand">Trinetra Bhojanalaya</span>
+        <span class="brand">Order Now</span>
     </div>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
 </header>
-
-<nav id="mobileMenu" class="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="order.html">Order Online</a>
-</nav>
 
 <section class="order-box">
 
-    <h1>Place Your Order</h1>
+    <h1>Your Order</h1>
 
-    <label>Name</label>
+    <!-- CART SUMMARY -->
+    <div id="cartSummary"></div>
+
+    <h1>Customer Details</h1>
+
+    <label>Your Name</label>
     <input id="custName" type="text" placeholder="Enter your name">
-
-    <label>Your Order</label>
-    <textarea id="orderItems" placeholder="Example: 1 Chole Bhature, 1 Pav Bhaji"></textarea>
 
     <label>Order Type</label>
     <select id="orderType" onchange="handleOrderType()">
-        <option value="delivery">Online Delivery</option>
+        <option value="delivery">Delivery</option>
         <option value="takeaway">Takeaway</option>
     </select>
 
+    <!-- DELIVERY ADDRESS -->
     <div id="addressBox">
-        <label>Delivery Address (Optional)</label>
-        <input id="deliveryAddress" type="text" placeholder="House No, Area">
+        <label>Delivery Address</label>
+        <textarea id="deliveryAddress" placeholder="Enter complete delivery address"></textarea>
     </div>
 
-    <button id="gpsBtn" class="btn-primary" onclick="getGPS()">Use My Current Location</button>
-    <p id="gpsStatus"></p>
+    <!-- GPS BUTTON -->
+    <button id="gpsBtn" class="btn-secondary" onclick="getGPS()">Use My Current Location</button>
+    <p id="gpsStatus" style="font-size:14px; margin-top:6px; color:#888;"></p>
 
-    <p id="deliveryNote"></p>
+    <p id="deliveryNote" style="margin-top:10px; color:#c96a1b;"></p>
 
-    <button class="btn-secondary" onclick="sendToWhatsApp()">Order on WhatsApp</button>
-
+    <button class="btn-primary" onclick="sendToWhatsApp()">Place Order</button>
 </section>
 
-<footer>© 2025 Trinetra Bhojanalaya</footer>
-
 <script>
-function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("show");
-}
+    // Render cart on page load
+    let cart = getSavedCart();
+    let box = document.getElementById("cartSummary");
 
-function handleOrderType() {
-    let type = document.getElementById("orderType").value;
-    document.getElementById("addressBox").style.display =
-        type === "takeaway" ? "none" : "block";
-    document.getElementById("gpsBtn").style.display =
-        type === "takeaway" ? "none" : "block";
-}
+    let html = `<h2>Items:</h2><ul style="margin-top:10px;">`;
+
+    cart.forEach(item => {
+        html += `<li>${item.name} x${item.qty} — ₹${item.qty * item.price}</li>`;
+    });
+
+    html += `</ul><h3 style="margin-top:10px;">Total: ₹${cart.reduce((s,x)=>s+x.price*x.qty,0)}</h3>`;
+
+    box.innerHTML = html;
 </script>
 
 </body>
