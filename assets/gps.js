@@ -1,19 +1,17 @@
-window.askForGPS = function(callbackSuccess, callbackError) {
+window.getGPS = function (callback) {
     if (!navigator.geolocation) {
-        callbackError("GPS not supported on this device.");
+        callback(null);
         return;
     }
 
     navigator.geolocation.getCurrentPosition(
         pos => {
-            callbackSuccess({
+            callback({
                 lat: pos.coords.latitude,
                 lon: pos.coords.longitude
             });
         },
-        err => {
-            callbackError("GPS permission denied.");
-        },
+        () => callback(null),
         { enableHighAccuracy: true }
     );
 };
