@@ -84,15 +84,12 @@ window.sendToWhatsApp = function () {
         return;
     }
 
-    // Read Cart
     let cart = getCart();
-
     if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
     }
 
-    // Validate delivery conditions
     if (orderType === "delivery") {
         
         if (!userLat || !userLon) {
@@ -106,15 +103,13 @@ window.sendToWhatsApp = function () {
         }
     }
 
-    // Build CART MESSAGE
     let cartText = cart
         .map(item => `${item.name} x${item.qty} = ₹${item.qty * item.price}`)
         .join("\n");
 
-    let total = cart.reduce((s, x) => s + x.price * x.qty, 0);
-    let grandTotal = total + (orderType === "delivery" ? deliveryCharge : 0);
+    let subtotal = cart.reduce((s, x) => s + x.price * x.qty, 0);
+    let grandTotal = subtotal + (orderType === "delivery" ? deliveryCharge : 0);
 
-    // Build WhatsApp Message
     let msg =
 `*New Order – Trinetra Bhojanalaya*
 👤 Name: ${name}
@@ -123,14 +118,13 @@ window.sendToWhatsApp = function () {
 ${cartText}
 
 📦 Order Type: ${orderType}
-🏠 Delivery Address: ${orderType === "delivery" ? address : "Takeaway"}
+🏠 Address: ${orderType === "delivery" ? address : "Takeaway"}
 
 🚚 Delivery Charge: ₹${orderType === "delivery" ? deliveryCharge : 0}
 💰 Total Payable: ₹${grandTotal}
 
 Thank you!`;
 
-    // SAVE ORDER TO FIRESTORE
     saveOrder(
         name,
         cart,
@@ -138,14 +132,12 @@ Thank you!`;
         address,
         userLat,
         userLon,
-        total,
+        subtotal,
         deliveryCharge,
         grandTotal
     );
 
-    // SEND TO WHATSAPP
-    let url = "https://wa.me/918496004096?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
+    window.open("https://wa.me/918496004096?text=" + encodeURIComponent(msg), "_blank");
 };
 
 /* ---------------------------------------------------------
