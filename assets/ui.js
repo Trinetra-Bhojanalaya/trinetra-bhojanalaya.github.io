@@ -1,33 +1,32 @@
 /* Mobile Menu Toggle */
-export function toggleMenu() {
+window.toggleMenu = function () {
     document.getElementById("mobileMenu").classList.toggle("show");
-}
+};
 
-/* Smooth Scroll (if needed later) */
-export function smoothScroll(id) {
+/* Smooth Scroll (Optional) */
+window.smoothScroll = function (id) {
     document.querySelector(id).scrollIntoView({
         behavior: "smooth"
     });
-}
+};
 
-/* Show temporary toast notifications */
-export function showToast(msg) {
+/* Toast Notification */
+window.showToast = function (msg) {
     let toast = document.createElement("div");
     toast.className = "toast";
     toast.textContent = msg;
 
     document.body.appendChild(toast);
 
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 50);
+    setTimeout(() => toast.classList.add("show"), 50);
 
     setTimeout(() => {
         toast.classList.remove("show");
         setTimeout(() => toast.remove(), 300);
     }, 2000);
-}
+};
 
+/* CART DRAWER FUNCTIONS */
 window.openCart = function () {
     document.getElementById("cartDrawer").classList.add("show");
 };
