@@ -1,178 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trinetra Bhojanalaya — Home</title>
-  <meta name="description" content="Trinetra Bhojanalaya — Chole Bhature, Pav Bhaji & Parathas in Medahalli, Bengaluru. Order on WhatsApp." />
-  <link rel="stylesheet" href="assets/css/style.css">
-  <meta property="og:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinetra Bhojanalaya</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- loader + navbar handled by main.js -->
-  <div id="loader" class="loader"><div class="loader-circle"></div></div>
 
-  <header class="navbar">
+<!-- NAVBAR -->
+<header class="navbar">
     <div class="nav-left">
-      <img src="images/logo.jpg" alt="Logo" class="logo">
-      <div class="brand">
-        <h1>Trinetra Bhojanalaya</h1>
-        <p class="tagline">Chole Bhature & Pav Bhaji — Medahalli, Bengaluru</p>
-      </div>
+        <img src="images/logo.jpg" class="logo" alt="Logo">
+        <span class="brand">Trinetra Bhojanalaya</span>
     </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+</header>
 
-    <div class="nav-right">
-      <button class="btn-primary" onclick="location.href='order.html'">Order Now</button>
-      <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+<!-- MOBILE MENU -->
+<nav id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="order.html">Order Now</a>
+    <a href="https://maps.app.goo.gl/byTeorHJEF8qAkJG7" target="_blank">Location</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Fresh • Hot • Delicious</h1>
+    <h2>Home-style North Indian Food Everyday</h2>
+
+    <a href="order.html" class="btn-primary">Order Now</a>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="menu-section">
+    <h2>Our Bestsellers</h2>
+
+    <div class="menu-grid">
+
+        <div class="item-card">
+            <img src="images/chole_bhature.jpg">
+            <h3>Chole Bhature</h3>
+            <p><span class="old">₹90</span> <span class="new">₹80</span> • 2 pcs</p>
+        </div>
+
+        <div class="item-card">
+            <img src="images/puri_chole.jpg">
+            <h3>Puri Chole</h3>
+            <p><span class="old">₹70</span> <span class="new">₹60</span> • 3 pcs</p>
+        </div>
+
+        <div class="item-card">
+            <img src="images/aloo_paratha.jpg">
+            <h3>Aloo Paratha</h3>
+            <p><span class="old">₹70</span> <span class="new">₹60</span> • 2 pcs</p>
+        </div>
+
+        <div class="item-card">
+            <img src="images/gobi_paratha.jpg">
+            <h3>Gobi Paratha</h3>
+            <p><span class="old">₹90</span> <span class="new">₹80</span> • 2 pcs</p>
+        </div>
+
+        <div class="item-card">
+            <img src="images/pav_bhaji.jpg">
+            <h3>Pav Bhaji</h3>
+            <p><span class="old">₹100</span> <span class="new">₹90</span> • 2 pav</p>
+        </div>
+
     </div>
-  </header>
+</section>
 
-  <nav id="mobileNav" class="mobile-nav">
-    <a href="#menu">Menu</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#order-link" onclick="location.href='order.html'">Order</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<!-- LOCATION BUTTON -->
+<section class="loc-section">
+    <h2>Find Us</h2>
+    <a class="btn-secondary" href="https://maps.app.goo.gl/byTeorHJEF8qAkJG7" target="_blank">
+        📍 Click Here for Directions
+    </a>
+</section>
 
-  <main>
-    <section class="hero card">
-      <div>
-        <h2>Fresh Chole Bhature & Pav Bhaji in Medahalli</h2>
-        <p>Homemade flavours, hygienic cooking and pocket-friendly prices. Order via WhatsApp or visit us.</p>
-        <div class="hero-ctas">
-          <a class="btn-primary" href="https://wa.me/917619126420" target="_blank">Order on WhatsApp</a>
-          <a class="btn-outline" href="order.html">Order (More options)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- MENU (kept on homepage) -->
-    <section id="menu" class="section card">
-      <h3>Menu</h3>
-
-      <div class="menu-item">
-        <div class="menu-left">
-          <img src="images/chole_bhature.jpg" alt="Chole Bhature">
-          <div>
-            <strong>Chole Bhature</strong>
-            <div><span class="old-price">₹90</span> <span class="new-price">₹80</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-left">
-          <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
-          <div>
-            <strong>Gobi Paratha</strong>
-            <div><span class="old-price">₹95</span> <span class="new-price">₹80</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-left">
-          <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
-          <div>
-            <strong>Aloo Paratha</strong>
-            <div><span class="old-price">₹75</span> <span class="new-price">₹60</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-left">
-          <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
-          <div>
-            <strong>Pav Bhaji</strong>
-            <div><span class="old-price">₹110</span> <span class="new-price">₹90</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-bottom-note">
-        Prices shown include discount. For orders and delivery check, click <a href="order.html">Order</a>.
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="section card">
-      <h3>Gallery</h3>
-      <div class="slider" id="gallerySlider">
-        <img src="images/chole_bhature.jpg" alt="">
-        <img src="images/gobi-paratha.jpg" alt="">
-        <img src="images/aloo-paratha.jpg" alt="">
-        <img src="images/pav-bhaji.jpg" alt="">
-        <img src="images/shop_image_1.jpg" alt="">
-        <img src="images/shop_image_2.jpg" alt="">
-      </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews" class="section card">
-      <h3>Customer Reviews</h3>
-      <div class="review-card">
-        <img src="images/chole_bhature.jpg" alt="">
-        <div>
-          <div class="stars">★★★★★</div>
-          <div class="review-text">Best chole bhature near KR Puram!</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <img src="images/pav-bhaji.jpg" alt="">
-        <div>
-          <div class="stars">★★★★★</div>
-          <div class="review-text">Pav Bhaji is delicious and fresh!</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact + Map -->
-    <section id="contact" class="section card">
-      <h3>Contact & Location</h3>
-      <p><strong>Phone / WhatsApp:</strong> <a href="tel:+917619126420">+91 76191 26420</a></p>
-      <p><strong>Address:</strong> Kithaganuru Main Road, Parvathi Nagar, Medahalli, Bengaluru – 560049</p>
-
-      <!-- embed updated map -->
-      <iframe
-        width="100%" height="260" style="border-radius:12px;border:0"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.124848491218!2d77.71240071440033!3d13.019196890641295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae12941d82b11f%3A0x7bd23f7c9b0b855e!2sTrinetra%20Bhojanalaya!5e0!3m2!1sen!2sin!4v1702012345678!5m2!1sen!2sin"
-        allowfullscreen="" loading="lazy"></iframe>
-    </section>
-
-    <!-- Delivery Checker (also on order page) -->
-    <section id="delivery-check" class="section card">
-      <h3>Check Delivery</h3>
-      <p>Enter your area or use your phone location to see if we deliver (1.5 km radius).</p>
-      <div class="row">
-        <input id="deliveryInputHome" placeholder="Type area (e.g., Medahalli, K R Puram)">
-        <button id="checkBtnHome" class="btn-primary">Check</button>
-        <button id="geoBtnHome" class="btn-outline">Use my location</button>
-      </div>
-      <div id="deliveryResultHome" class="result"></div>
-    </section>
-  </main>
-
-  <!-- floating actions -->
-  <a class="float-whatsapp" href="https://wa.me/917619126420">💬</a>
-  <a class="float-call" href="tel:+917619126420">📞</a>
-
-  <footer>
+<footer>
     © 2025 Trinetra Bhojanalaya
-  </footer>
+</footer>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/delivery.js"></script>
-  <script>
-    // bind home delivery-check inputs (delivery.js functions will use these ids)
-    bindDeliveryElements({
-      inputId: 'deliveryInputHome',
-      checkBtnId: 'checkBtnHome',
-      geoBtnId: 'geoBtnHome',
-      resultId: 'deliveryResultHome',
-      waButtonId: null // home section doesn't show WA button here
-    });
-  </script>
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
+
 </body>
 </html>
