@@ -24,12 +24,13 @@
     <a href="index.html">Home</a>
     <a href="order.html">Order Online</a>
     <a href="https://maps.app.goo.gl/byTeorHJEF8qAkJG7" target="_blank">Location</a>
+    <a href="admin-login.html">Admin Panel</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
     <h1>Fresh • Hot • Delicious</h1>
-    <p>Authentic North Indian Taste Everyday</p>
+    <p>Taste that feels like home.</p>
     <a href="order.html" class="btn-primary">Order Now</a>
 </section>
 
@@ -84,37 +85,29 @@
         📍 Get Directions
     </a>
 </section>
-    
+
+<!-- CART FLOAT BUTTON -->
 <button class="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
-    
+
+<!-- CART DRAWER -->
 <div id="cartDrawer" class="cart-drawer">
-
     <h2>Your Cart</h2>
-
     <div id="cartItems"></div>
 
     <div class="cart-total">
         Total: ₹<span id="cartTotal">0</span>
     </div>
 
-    <button class="btn-primary" onclick="proceedToDelivery()">Proceed</button>
+    <button class="btn-primary" onclick="window.location.href='order.html'">Proceed</button>
     <button class="btn-secondary" onclick="closeCart()">Close</button>
-
 </div>
 
-<script src="assets/cart.js"></script>
-<script src="assets/ui.js"></script>
-<script src="assets/delivery.js"></script>
-    
 <footer>
     © 2025 Trinetra Bhojanalaya
 </footer>
-    
 
+<script src="assets/cart.js"></script>
+<script src="assets/ui.js"></script>
 
 </body>
 </html>
-
-
-
-
