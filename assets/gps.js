@@ -1,4 +1,4 @@
-export function askForGPS(callbackSuccess, callbackError) {
+window.askForGPS = function(callbackSuccess, callbackError) {
     if (!navigator.geolocation) {
         callbackError("GPS not supported on this device.");
         return;
@@ -16,5 +16,4 @@ export function askForGPS(callbackSuccess, callbackError) {
         },
         { enableHighAccuracy: true }
     );
-}
-
+};
