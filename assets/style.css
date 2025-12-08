@@ -202,7 +202,7 @@ h1, h2, h3 {
    CART DRAWER (Mobile)
 --------------------------------*/
 .cart-drawer {
-    position: fixed;
+    position: relative;
     bottom: -100%;
     left: 0;
     width: 100%;
