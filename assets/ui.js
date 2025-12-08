@@ -1,9 +1,13 @@
-/* MOBILE MENU */
+/* -------------------------------
+   MOBILE MENU
+--------------------------------*/
 window.toggleMenu = function () {
     document.getElementById("mobileMenu").classList.toggle("show");
 };
 
-/* CART DRAWER */
+/* -------------------------------
+   CART DRAWER
+--------------------------------*/
 window.openCart = function () {
     document.getElementById("cartDrawer").classList.add("show");
 };
