@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order – Trinetra Bhojanalaya</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="firebase.js"></script>
-    <script defer src="delivery.js"></script>
+    <title>Order • Trinetra Bhojanalaya</title>
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script type="module" src="assets/firebase.js"></script>
+    <script defer src="assets/delivery.js"></script>
+    <script defer src="assets/cart.js"></script>
+    <script defer src="assets/saveOrder.js"></script>
+    <script defer src="assets/gps.js"></script>
+    <script defer src="assets/ui.js"></script>
 </head>
 
 <body>
 
 <header class="navbar">
     <div class="nav-left">
-        <img src="images/logo.jpg" class="logo" alt="Logo">
+        <img src="images/logo.jpg" class="logo">
         <span class="brand">Trinetra Bhojanalaya</span>
     </div>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
@@ -21,43 +27,35 @@
 
 <nav id="mobileMenu" class="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="order.html">Order Now</a>
+    <a href="order.html">Order Online</a>
 </nav>
 
-<section class="order-container">
+<section class="order-box">
 
     <h1>Place Your Order</h1>
 
-    <!-- NAME -->
-    <label>Your Name</label>
-    <input type="text" id="custName" placeholder="Enter your name">
+    <label>Name</label>
+    <input id="custName" type="text" placeholder="Enter your name">
 
-    <!-- ORDER ITEMS -->
     <label>Your Order</label>
-    <textarea id="orderItems" placeholder="Example: 1 Chole Bhature, 1 Aloo Paratha"></textarea>
+    <textarea id="orderItems" placeholder="Example: 1 Chole Bhature, 1 Pav Bhaji"></textarea>
 
-    <!-- ORDER TYPE -->
     <label>Order Type</label>
     <select id="orderType" onchange="handleOrderType()">
         <option value="delivery">Online Delivery</option>
         <option value="takeaway">Takeaway</option>
     </select>
 
-    <!-- DELIVERY ADDRESS FIELD -->
-    <div id="addressSection">
-        <label>Delivery Address (optional)</label>
-        <input type="text" id="deliveryAddress" placeholder="House No, Area">
+    <div id="addressBox">
+        <label>Delivery Address (Optional)</label>
+        <input id="deliveryAddress" type="text" placeholder="House No, Area">
     </div>
 
-    <!-- GPS BUTTON -->
-    <button id="gpsBtn" class="btn-primary" onclick="getGPS()">Use Current Location</button>
-
+    <button id="gpsBtn" class="btn-primary" onclick="getGPS()">Use My Current Location</button>
     <p id="gpsStatus"></p>
 
-    <!-- CALCULATED MESSAGE -->
-    <div id="deliveryNote"></div>
+    <p id="deliveryNote"></p>
 
-    <!-- WhatsApp BUTTON -->
     <button class="btn-secondary" onclick="sendToWhatsApp()">Order on WhatsApp</button>
 
 </section>
@@ -68,9 +66,10 @@
 function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("show");
 }
+
 function handleOrderType() {
     let type = document.getElementById("orderType").value;
-    document.getElementById("addressSection").style.display =
+    document.getElementById("addressBox").style.display =
         type === "takeaway" ? "none" : "block";
     document.getElementById("gpsBtn").style.display =
         type === "takeaway" ? "none" : "block";
