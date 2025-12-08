@@ -24,7 +24,7 @@ window.addToCart = function (itemName, itemPrice) {
 
     updateCartCount();
     renderCartItems();
-    openCart();
+    
 };
 
 /* ---------------------------------------------------------
