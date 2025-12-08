@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin – Trinetra Bhojanalaya</title>
 
-<link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
 
-<script type="module">
+    <script type="module">
 
-import { auth, db } from "./assets/firebase.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { db } from "./assets/firebase.js";
+        import { collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-onAuthStateChanged(auth, user => {
-    if (!user) window.location.href = "admin-login.html";
-});
+        const orderBox = document.getElementById("orders");
 
-async function loadOrders() {
-    const list = document.getElementById("orderList");
-    const q = await getDocs(collection(db, "orders"));
+        const q = query(collection(db, "orders"), orderBy("timestamp", "desc"));
 
-    q.forEach(doc => {
-        const o = doc.data();
-        let div = document.createElement("div");
-        div.className = "order-item";
-        div.innerHTML = `
-            <b>Name:</b> ${o.name}<br>
-            <b>Order:</b> ${o.order}<br>
-            <b>Type:</b> ${o.type}<br>
-            <b>Address:</b> ${o.address}<br>
-            <b>Time:</b> ${o.timestamp}<br>
-            <hr>
-        `;
-        list.appendChild(div);
-    });
-}
+        onSnapshot(q, snapshot => {
+            orderBox.innerHTML = "";
 
-window.onload = loadOrders;
+            snapshot.forEach(doc => {
+                let o = doc.data();
 
-</script>
+                let cartHTML = o.cart
+                    .map(i => `${i.name} x${i.qty} — ₹${i.qty * i.price}`)
+                    .join("<br>");
 
+                orderBox.innerHTML += `
+                    <div class="order-item">
+                        <b>Name:</b> ${o.name}<br>
+                        <b>Type:</b> ${o.type}<br>
+                        <b>Address:</b> ${o.type === "delivery" ? o.address : "Takeaway"}<br><br>
+
+                        <b>Items:</b><br>${cartHTML}<br><br>
+
+                        <b>Subtotal:</b> ₹${o.subtotal}<br>
+                        <b>Delivery Charge:</b> ₹${o.deliveryCharge}<br>
+                        <b>Total:</b> ₹${o.total}<br><br>
+
+                        <b>Time:</b> ${o.timestamp?.toDate()}<br>
+                        <b>GPS:</b> ${o.gpsLat}, ${o.gpsLon}
+                    </div>
+                `;
+            });
+        });
+
+    </script>
 </head>
 
 <body>
 
-<section class="order-box">
-    <h1>All Orders</h1>
-    <div id="orderList"></div>
+<header class="navbar">
+    <div class="nav-left">
+        <img src="images/logo.jpg" class="logo">
+        <span class="brand">Admin Panel</span>
+    </div>
+</header>
+
+<section style="padding:20px;">
+    <h1>Orders</h1>
+    <div id="orders"></div>
 </section>
 
 </body>
 </html>
-
