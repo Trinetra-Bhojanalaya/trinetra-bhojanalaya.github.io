@@ -1,18 +1,22 @@
-/* -------------------------------
-   GLOBAL STYLES
---------------------------------*/
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fafafa;
-    color: #333;
-}
-
-h1, h2, h3 {
+/* -----------------------------------
+   BASIC GLOBAL STYLES
+----------------------------------- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: "Arial", sans-serif;
+    background: #fafafa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* -----------------------------------
+   BUTTONS
+----------------------------------- */
 .btn-primary, .btn-secondary {
     display: inline-block;
     padding: 12px 18px;
@@ -22,30 +26,30 @@ h1, h2, h3 {
     font-size: 16px;
 }
 
-/* Primary Button */
+/* Orange button */
 .btn-primary {
     background: #c96a1b;
     color: white;
     border: none;
 }
 
-/* Secondary Button */
+/* Outline button */
 .btn-secondary {
     background: white;
     color: #c96a1b;
     border: 2px solid #c96a1b;
 }
 
-/* -------------------------------
+/* -----------------------------------
    NAVBAR
---------------------------------*/
+----------------------------------- */
 .navbar {
+    background: #c96a1b;
+    color: white;
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px;
-    background: #c96a1b;
-    color: white;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -58,34 +62,35 @@ h1, h2, h3 {
 }
 
 .logo {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid white;
 }
 
 .brand {
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .hamburger {
-    background: none;
-    border: none;
-    font-size: 28px;
+    background: transparent;
+    border: 0;
+    font-size: 30px;
     color: white;
     cursor: pointer;
 }
 
-/* -------------------------------
+/* -----------------------------------
    MOBILE MENU
---------------------------------*/
+----------------------------------- */
 .mobile-menu {
     display: none;
     flex-direction: column;
     background: white;
-    padding: 15px;
+    width: 100%;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -94,15 +99,15 @@ h1, h2, h3 {
 }
 
 .mobile-menu a {
-    padding: 10px 0;
     color: #c96a1b;
-    font-size: 18px;
+    padding: 10px;
     text-decoration: none;
+    font-size: 18px;
 }
 
-/* -------------------------------
+/* -----------------------------------
    HERO SECTION
---------------------------------*/
+----------------------------------- */
 .hero {
     text-align: center;
     padding: 60px 20px;
@@ -110,110 +115,129 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    font-weight: bold;
 }
 
 .hero p {
+    margin-top: 10px;
     color: #444;
-    margin-bottom: 20px;
 }
 
-/* -------------------------------
+/* -----------------------------------
    MENU GRID
---------------------------------*/
+----------------------------------- */
 .menu-section {
-    padding: 20px;
+    padding: 25px 15px;
+}
+
+.menu-section h2 {
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat( auto-fit, minmax(160px, 1fr) );
+    gap: 18px;
 }
 
 .item-card {
     background: white;
     border-radius: 10px;
     padding: 12px;
-    text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .item-card img {
     width: 100%;
-    height: 120px;
+    height: 130px;
     object-fit: cover;
     border-radius: 8px;
 }
 
 .item-card .old {
+    color: #888;
     text-decoration: line-through;
-    color: #999;
 }
 
 .item-card .new {
-    font-weight: bold;
     color: #c96a1b;
+    font-weight: bold;
 }
 
 .add-btn {
-    margin-top: 8px;
-    padding: 10px;
     width: 100%;
+    padding: 10px;
+    margin-top: 8px;
     background: #c96a1b;
-    border: none;
     color: white;
-    border-radius: 6px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 15px;
 }
 
-/* -------------------------------
+/* -----------------------------------
+   LOCATION SECTION
+----------------------------------- */
+.loc-section {
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.loc-section h2 {
+    margin-bottom: 10px;
+}
+
+/* -----------------------------------
    FLOATING CART BUTTON
---------------------------------*/
+----------------------------------- */
 .cart-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 18px;
+    right: 18px;
+    padding: 14px 18px;
     background: #c96a1b;
     color: white;
     border: none;
-    padding: 12px 18px;
     border-radius: 50px;
     font-size: 20px;
     cursor: pointer;
-    z-index: 10000;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
     display: flex;
     align-items: center;
     gap: 6px;
+    z-index: 10000;
 }
 
 #cart-count {
+    padding: 3px 7px;
     background: white;
     color: #c96a1b;
-    padding: 2px 8px;
     border-radius: 50%;
+    font-size: 15px;
     font-weight: bold;
 }
 
-/* -------------------------------
-   CART DRAWER (Updated Clean UI)
---------------------------------*/
+/* -----------------------------------
+   CART DRAWER (Responsive)
+----------------------------------- */
 .cart-drawer {
-    position: relative;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    height: 70vh;
     background: #fff;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-    border-radius: 18px 18px 0 0;
+    width: 100%;
+    max-width: 500px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100%;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -6px 30px rgba(0,0,0,0.25);
     padding: 20px;
     z-index: 9999;
-    transition: bottom 0.35s ease;
+    transition: bottom .35s ease;
     overflow-y: auto;
+    height: 70vh;
 }
 
 .cart-drawer.show {
@@ -221,99 +245,62 @@ h1, h2, h3 {
 }
 
 .cart-drawer h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
 
-/* Cart items wrapper */
+/* Cart items */
 #cartItems {
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
-/* Each cart item line */
 .cart-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid #f2f2f2;
 }
 
-/* Item name + qty */
 .cart-item .left {
     font-size: 16px;
-    font-weight: 500;
     color: #333;
 }
 
-/* Price aligned right */
 .cart-item .right {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
     color: #c96a1b;
 }
 
-/* Total Section */
+/* Total */
 .cart-total {
-    margin-top: 18px;
     text-align: right;
     font-size: 20px;
     font-weight: bold;
-    color: #c96a1b;
-    padding-top: 10px;
+    margin-top: 15px;
     border-top: 2px solid #eee;
+    padding-top: 10px;
 }
 
-/* Buttons inside drawer */
+/* Buttons */
 .cart-drawer button {
     width: 100%;
-    margin-top: 12px;
     padding: 14px;
     border-radius: 10px;
     font-size: 16px;
-    cursor: pointer;
+    margin-top: 10px;
 }
 
-.cart-drawer .btn-primary {
-    background: #c96a1b;
-    color: white;
-    border: none;
-}
-
-.cart-drawer .btn-secondary {
-    background: white;
-    border: 2px solid #c96a1b;
-    color: #c96a1b;
-}
-
-/* Cart items inside drawer */
-#cartItems div {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #f4f4f4;
-}
-
-/* Total price area */
-.cart-total {
-    text-align: right;
-    font-size: 20px;
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-/* -------------------------------
+/* -----------------------------------
    ORDER PAGE BOX
---------------------------------*/
+----------------------------------- */
 .order-box {
     background: white;
     padding: 20px;
     margin: 15px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .order-box input,
@@ -321,19 +308,48 @@ h1, h2, h3 {
 .order-box select {
     width: 100%;
     padding: 12px;
-    margin: 8px 0 15px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-/* -------------------------------
+/* -----------------------------------
    FOOTER
---------------------------------*/
+----------------------------------- */
 footer {
-    text-align: center;
-    padding: 20px;
     background: #c96a1b;
     color: white;
-    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* -----------------------------------
+   LARGE SCREENS (PC / LAPTOP)
+----------------------------------- */
+@media (min-width: 900px) {
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Cart drawer on PC becomes SIDE PANEL */
+    .cart-drawer {
+        max-width: 380px;
+        right: 0;
+        left: auto;
+        transform: none;
+        height: 90vh;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .cart-drawer.show {
+        bottom: 0;
+        right: 0;
+        position: fixed;
+    }
 }
