@@ -3,13 +3,6 @@ window.toggleMenu = function () {
     document.getElementById("mobileMenu").classList.toggle("show");
 };
 
-/* Smooth Scroll (Optional) */
-window.smoothScroll = function (id) {
-    document.querySelector(id).scrollIntoView({
-        behavior: "smooth"
-    });
-};
-
 /* Toast Notification */
 window.showToast = function (msg) {
     let toast = document.createElement("div");
@@ -28,9 +21,16 @@ window.showToast = function (msg) {
 
 /* CART DRAWER FUNCTIONS */
 window.openCart = function () {
-    document.getElementById("cartDrawer").classList.add("show");
+    const drawer = document.getElementById("cartDrawer");
+    drawer.classList.add("show");
 };
 
 window.closeCart = function () {
-    document.getElementById("cartDrawer").classList.remove("show");
+    const drawer = document.getElementById("cartDrawer");
+    drawer.classList.remove("show");
 };
+
+/* DEFAULT HIDE CART ON LOAD */
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("cartDrawer").classList.remove("show");
+});
