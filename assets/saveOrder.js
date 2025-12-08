@@ -1,9 +1,6 @@
-import { db } from "./firebase.js";
-import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-export async function saveOrder(name, cart, type, address, lat, lon, subtotal, deliveryCharge, total) {
+window.saveOrder = async function(name, cart, type, address, lat, lon, subtotal, deliveryCharge, total) {
     try {
-        await addDoc(collection(db, "orders"), {
+        await addDoc(collection(window.db, "orders"), {
             name,
             cart,
             type,
@@ -18,4 +15,4 @@ export async function saveOrder(name, cart, type, address, lat, lon, subtotal, d
     } catch (err) {
         console.error("Error saving order:", err);
     }
-}
+};
