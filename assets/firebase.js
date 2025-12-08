@@ -10,29 +10,18 @@ const firebaseConfig = {
     appId: "1:706369975338:web:17e8e85f6abc533b28ff53"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-/* Make Firestore globally available */
 window.db = db;
 
-/* Save order without using 'export' */
-window.saveOrder = async function(name, cart, type, address, lat, lon, subtotal, deliveryCharge, total) {
+/* Firestore Order Saver */
+window.saveOrder = async function (orderData) {
     try {
-        await addDoc(collection(window.db, "orders"), {
-            name,
-            cart,
-            type,
-            address,
-            gpsLat: lat,
-            gpsLon: lon,
-            subtotal,
-            deliveryCharge,
-            total,
+        await addDoc(collection(db, "orders"), {
+            ...orderData,
             timestamp: serverTimestamp()
         });
     } catch (err) {
-        console.error("Error saving order:", err);
+        console.error("ORDER SAVE FAILED:", err);
     }
 };
