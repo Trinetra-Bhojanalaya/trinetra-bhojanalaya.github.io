@@ -44,31 +44,35 @@ window.getGPS = function () {
 
     status.textContent = "Fetching your location…";
 
-    navigator.geolocation.getCurrentPosition(pos => {
-        userLat = pos.coords.latitude;
-        userLon = pos.coords.longitude;
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+            userLat = pos.coords.latitude;
+            userLon = pos.coords.longitude;
 
-        let distance = haversine(SHOP_LAT, SHOP_LON, userLat, userLon);
+            let distance = haversine(SHOP_LAT, SHOP_LON, userLat, userLon);
 
-        // DELIVERY LOGIC
-        if (distance <= 1.5) {
-            deliveryCharge = 0;
-            note.innerHTML = `<b>Delivery Available:</b> You are inside 1.5 km (Free Delivery)`;
-        }
-        else if (distance <= 3) {
-            deliveryCharge = 20;
-            note.innerHTML = `<b>Extended Delivery:</b> ₹20 charge applies`;
-        }
-        else {
-            deliveryCharge = 9999;  // Mark as not serviceable
-            note.innerHTML = `<b>Out of Range:</b> We cannot deliver here`;
-        }
+            if (distance <= 1.5) {
+                deliveryCharge = 0;
+                note.innerHTML = `<b>Delivery Available:</b> Free delivery (within 1.5 km)`;
+            }
+            else if (distance <= 3) {
+                deliveryCharge = 20;
+                note.innerHTML = `<b>Extended Delivery:</b> Delivery charge: ₹20`;
+            }
+            else {
+                deliveryCharge = 9999;
+                note.innerHTML = `<b>Out of Range:</b> Delivery not available`;
+            }
 
-        status.textContent = "Location detected ✔";
-    }, err => {
-        status.textContent = "Location permission denied.";
-    });
+            status.textContent = "Location detected ✔";
+        },
+        err => {
+            status.textContent = "Location permission denied.";
+        },
+        { enableHighAccuracy: true }
+    );
 };
+
 
 /* ---------------------------------------------------------
    PROCEED TO WHATSAPP ORDER
