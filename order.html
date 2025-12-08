@@ -7,8 +7,11 @@
 
     <link rel="stylesheet" href="assets/style.css">
 
+    <!-- Load JS in correct order -->
     <script src="assets/cart.js"></script>
+    <script src="assets/gps.js" defer></script>
     <script src="assets/delivery.js" defer></script>
+    <script src="assets/saveOrder.js" defer></script>
 </head>
 
 <body>
@@ -25,7 +28,7 @@
     <h1>Your Order</h1>
 
     <!-- CART SUMMARY -->
-    <div id="cartSummary"></div>
+    <div id="cartSummary" class="cart-summary"></div>
 
     <h1>Customer Details</h1>
 
@@ -46,27 +49,63 @@
 
     <!-- GPS BUTTON -->
     <button id="gpsBtn" class="btn-secondary" onclick="getGPS()">Use My Current Location</button>
-    <p id="gpsStatus" style="font-size:14px; margin-top:6px; color:#888;"></p>
+    <p id="gpsStatus" class="gps-status"></p>
 
-    <p id="deliveryNote" style="margin-top:10px; color:#c96a1b;"></p>
+    <p id="deliveryNote" class="delivery-note"></p>
 
     <button class="btn-primary" onclick="sendToWhatsApp()">Place Order</button>
+
 </section>
 
 <script>
-    // Render cart on page load
-    let cart = getSavedCart();
-    let box = document.getElementById("cartSummary");
+/* ------------ RENDER CART ON PAGE LOAD ------------ */
 
-    let html = `<h2>Items:</h2><ul style="margin-top:10px;">`;
+const cart = getSavedCart(); // from cart.js
+let box = document.getElementById("cartSummary");
+
+if (!cart || cart.length === 0) {
+    box.innerHTML = `<p>Your cart is empty.</p>`;
+} else {
+    let html = `<h2>Items:</h2><ul class="cart-list">`;
 
     cart.forEach(item => {
-        html += `<li>${item.name} x${item.qty} — ₹${item.qty * item.price}</li>`;
+        html += `
+            <li>
+                ${item.name} × ${item.qty}  
+                <span>₹${item.qty * item.price}</span>
+            </li>
+        `;
     });
 
-    html += `</ul><h3 style="margin-top:10px;">Total: ₹${cart.reduce((s,x)=>s+x.price*x.qty,0)}</h3>`;
+    let total = cart.reduce((sum, x) => sum + x.price * x.qty, 0);
+
+    html += `</ul><h3 class="cart-total">Total: ₹${total}</h3>`;
 
     box.innerHTML = html;
+}
+
+/* ------------ DELIVERY VS TAKEAWAY UI ------------ */
+
+function handleOrderType() {
+    const type = document.getElementById("orderType").value;
+    const addressBox = document.getElementById("addressBox");
+    const gpsBtn = document.getElementById("gpsBtn");
+    const gpsStatus = document.getElementById("gpsStatus");
+    const note = document.getElementById("deliveryNote");
+
+    if (type === "takeaway") {
+        addressBox.style.display = "none";
+        gpsBtn.style.display = "none";
+        gpsStatus.innerHTML = "";
+        note.innerHTML = "";
+    } else {
+        addressBox.style.display = "block";
+        gpsBtn.style.display = "block";
+    }
+}
+
+handleOrderType(); // run once on page load
+
 </script>
 
 </body>
