@@ -1,93 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Order — Trinetra Bhojanalaya</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order – Trinetra Bhojanalaya</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebase.js"></script>
+    <script defer src="delivery.js"></script>
 </head>
+
 <body>
-  <div id="loader" class="loader"><div class="loader-circle"></div></div>
 
-  <header class="navbar">
+<header class="navbar">
     <div class="nav-left">
-      <img src="images/logo.jpg" class="logo" alt="Logo">
-      <div class="brand"><h1>Trinetra Bhojanalaya</h1></div>
+        <img src="images/logo.jpg" class="logo" alt="Logo">
+        <span class="brand">Trinetra Bhojanalaya</span>
     </div>
-    <div class="nav-right">
-      <a class="btn-outline" href="index.html">Home</a>
-      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="order.html">Order Now</a>
+</nav>
+
+<section class="order-container">
+
+    <h1>Place Your Order</h1>
+
+    <!-- NAME -->
+    <label>Your Name</label>
+    <input type="text" id="custName" placeholder="Enter your name">
+
+    <!-- ORDER ITEMS -->
+    <label>Your Order</label>
+    <textarea id="orderItems" placeholder="Example: 1 Chole Bhature, 1 Aloo Paratha"></textarea>
+
+    <!-- ORDER TYPE -->
+    <label>Order Type</label>
+    <select id="orderType" onchange="handleOrderType()">
+        <option value="delivery">Online Delivery</option>
+        <option value="takeaway">Takeaway</option>
+    </select>
+
+    <!-- DELIVERY ADDRESS FIELD -->
+    <div id="addressSection">
+        <label>Delivery Address (optional)</label>
+        <input type="text" id="deliveryAddress" placeholder="House No, Area">
     </div>
-  </header>
 
-  <nav id="mobileNav" class="mobile-nav">
-    <a href="index.html#menu">Menu</a>
-    <a href="index.html#gallery">Gallery</a>
-    <a href="index.html#reviews">Reviews</a>
-    <a href="#order">Order</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
+    <!-- GPS BUTTON -->
+    <button id="gpsBtn" class="btn-primary" onclick="getGPS()">Use Current Location</button>
 
-  <main>
-    <section class="section card" id="order">
-      <h2>Place Your Order</h2>
-      <div class="form-box">
-        <label>Choose dish</label>
-        <select id="orderDish">
-          <option>Chole Bhature</option>
-          <option>Aloo Paratha</option>
-          <option>Gobi Paratha</option>
-          <option>Pav Bhaji</option>
-        </select>
+    <p id="gpsStatus"></p>
 
-        <label>Quantity</label>
-        <input id="orderQty" type="number" min="1" value="1">
+    <!-- CALCULATED MESSAGE -->
+    <div id="deliveryNote"></div>
 
-        <label>Mode</label>
-        <select id="orderMode" onchange="toggleAddressFieldOrder()">
-          <option value="Takeaway">Takeaway</option>
-          <option value="Home Delivery">Home Delivery</option>
-        </select>
+    <!-- WhatsApp BUTTON -->
+    <button class="btn-secondary" onclick="sendToWhatsApp()">Order on WhatsApp</button>
 
-        <label id="addressLabel" style="display:none">Delivery Address</label>
-        <textarea id="orderAddress" placeholder="Type address or nearby landmark" style="display:none"></textarea>
+</section>
 
-        <div id="orderMsg" class="result"></div>
+<footer>© 2025 Trinetra Bhojanalaya</footer>
 
-        <div class="row">
-          <button class="btn-primary" id="orderNowBtn">Order Now</button>
-          <button class="btn-outline" id="detectLocationBtn">Use Current Location</button>
-        </div>
-      </div>
-    </section>
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("show");
+}
+function handleOrderType() {
+    let type = document.getElementById("orderType").value;
+    document.getElementById("addressSection").style.display =
+        type === "takeaway" ? "none" : "block";
+    document.getElementById("gpsBtn").style.display =
+        type === "takeaway" ? "none" : "block";
+}
+</script>
 
-    <section class="section card">
-      <h3>Delivery Areas (example)</h3>
-      <p>We deliver within 1.5 km of Medahalli: Medahalli, Kithaganuru, Parvathi Nagar, Seegehalli, K R Puram (nearby). If you are outside this radius we recommend takeaway.</p>
-    </section>
-  </main>
-
-  <a class="float-whatsapp" href="https://wa.me/917619126420">💬</a>
-  <a class="float-call" href="tel:+917619126420">📞</a>
-
-  <footer>© 2025 Trinetra Bhojanalaya</footer>
-
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/delivery.js"></script>
-  <script src="assets/js/order.js"></script>
-
-  <script>
-    // initialize order page
-    initOrderPage({
-      orderNowBtnId: 'orderNowBtn',
-      detectBtnId: 'detectLocationBtn',
-      dishId: 'orderDish',
-      qtyId: 'orderQty',
-      modeId: 'orderMode',
-      addressId: 'orderAddress',
-      addressLabelId: 'addressLabel',
-      msgId: 'orderMsg'
-    });
-  </script>
 </body>
 </html>
