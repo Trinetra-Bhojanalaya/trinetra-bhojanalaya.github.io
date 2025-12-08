@@ -1,1 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #fff8f0;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #c96a1b;
+    color: white;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.hamburger {
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.mobile-menu {
+    display: none;
+    background: #c96a1b;
+    padding: 10px;
+}
+
+.mobile-menu.show {
+    display: block;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 8px;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff3e1;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #c96a1b;
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    border: 2px solid #c96a1b;
+    color: #c96a1b;
+}
+
+/* MENU GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.item-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.item-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.old { text-decoration: line-through; color: gray; }
+.new { color: #c96a1b; font-weight: bold; }
+
+/* ORDER PAGE */
+.order-container {
+    padding: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff0e0;
+    margin-top: 20px;
+}
 
