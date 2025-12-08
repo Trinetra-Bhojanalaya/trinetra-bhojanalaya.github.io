@@ -84,10 +84,27 @@
         📍 Get Directions
     </a>
 </section>
+    
+<div id="cartDrawer" class="cart-drawer">
+
+    <h2>Your Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+        Total: ₹<span id="cartTotal">0</span>
+    </div>
+
+    <button class="btn-primary" onclick="proceedToDelivery()">Proceed</button>
+    <button class="btn-secondary" onclick="closeCart()">Close</button>
+
+</div>
 
 <footer>
     © 2025 Trinetra Bhojanalaya
 </footer>
+    
+<button class="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
 
 <script>
 function toggleMenu() {
@@ -97,4 +114,5 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
