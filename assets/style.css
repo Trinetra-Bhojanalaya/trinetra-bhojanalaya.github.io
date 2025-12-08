@@ -233,3 +233,25 @@ footer {
     color: #444;
     margin-top: 20px;
 }
+
+/* ---------------------------------------------
+   ADDITIONAL UPDATES
+----------------------------------------------*/
+.toast {
+    position: fixed;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c96a1b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.toast.show {
+    bottom: 30px;
+    opacity: 1;
+}
