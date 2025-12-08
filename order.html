@@ -64,7 +64,7 @@
 /* ------------ RENDER CART ON PAGE LOAD ------------ */
 
 function loadCart() {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem("cartData") || "[]");
     const box = document.getElementById("cartSummary");
 
     if (!cart.length) {
@@ -72,25 +72,23 @@ function loadCart() {
         return;
     }
 
-    let html = `<h2>Items:</h2><ul class="cart-list">`;
-
     let total = 0;
+    let html = `<h2>Items:</h2><ul class="cart-list">`;
 
     cart.forEach(item => {
         let subtotal = item.qty * item.price;
         total += subtotal;
 
         html += `
-            <li>
-                ${item.name} × ${item.qty}
+            <li>${item.name} × ${item.qty}
                 <span>₹${subtotal}</span>
-            </li>
-        `;
+            </li>`;
     });
 
     html += `</ul><h3 class="cart-total">Total: ₹${total}</h3>`;
     box.innerHTML = html;
 }
+
 
 
 /* ------------ DELIVERY VS TAKEAWAY UI ------------ */
@@ -121,3 +119,4 @@ window.onload = () => {
 
 </body>
 </html>
+
