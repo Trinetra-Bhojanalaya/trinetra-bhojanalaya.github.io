@@ -85,6 +85,8 @@
     </a>
 </section>
     
+<button class="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
+    
 <div id="cartDrawer" class="cart-drawer">
 
     <h2>Your Cart</h2>
@@ -100,12 +102,14 @@
 
 </div>
 
+<script src="assets/cart.js"></script>
+<script src="assets/ui.js"></script>
+<script src="assets/delivery.js"></script>
+    
 <footer>
     © 2025 Trinetra Bhojanalaya
 </footer>
     
-<button class="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
-
 <script>
 function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("show");
@@ -114,5 +118,6 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
