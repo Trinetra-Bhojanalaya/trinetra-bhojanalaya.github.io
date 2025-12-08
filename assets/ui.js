@@ -28,3 +28,10 @@ export function showToast(msg) {
     }, 2000);
 }
 
+window.openCart = function () {
+    document.getElementById("cartDrawer").classList.add("show");
+};
+
+window.closeCart = function () {
+    document.getElementById("cartDrawer").classList.remove("show");
+};
