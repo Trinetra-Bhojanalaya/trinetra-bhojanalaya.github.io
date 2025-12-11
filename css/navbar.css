@@ -52,18 +52,27 @@
 .side-menu {
     position: fixed;
     top: 69px;
-    right: -260px;
-    width: 40vw;
-    height: calc(100% - 69px);
-    background: #FFE8C6;
+    right: -320px;  /* fully hides menu including blur & shadows */
 
-    padding: 25px 18px;
+    width: 240px;
+    height: calc(100% - 69px);
+
+    background: rgba(255, 248, 235, 0.85);
+    backdrop-filter: blur(12px);
+
+    border-left: 1px solid rgba(255, 180, 90, 0.4);
+    box-shadow: -6px 0 18px rgba(0, 0, 0, 0.18);
+
+    padding: 28px 20px;
+
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    transition: right 0.35s ease, opacity 0.2s ease;
-    z-index: 250;
-    border-top-left-radius: 15px;
+    gap: 26px;
+
+    border-top-left-radius: 22px;
+    transition: right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    z-index: 5000;
 }
 
 .side-menu a {
@@ -92,7 +101,7 @@
 #overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 200;
 }
