@@ -1,0 +1,29 @@
+/* =============================
+   HERO SECTION
+   ============================= */
+
+.hero {
+    background: white;
+    margin: 16px;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    animation: fade 1s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--brown);
+}
+
+.hero p {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

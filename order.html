@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online – Trinetra Bhojanalaya</title>
+
+    <!-- CSS MODULES -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <img src="images/logo.jpg" alt="Logo">
+        <div class="navbar-title">Order Online</div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- SIDE MENU -->
+    <div id="overlay"></div>
+    <div id="sideMenu" class="side-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="index.html#menu">🍽️ Menu</a>
+        <a href="index.html#gallery">🖼️ Gallery</a>
+        <a href="index.html#contact">📍 Contact</a>
+    </div>
+
+    <!-- ORDER LIST -->
+    <section id="order" class="section">
+        <h2>🛒 Select Items</h2>
+
+        <p class="notice-text">
+            Takeaway Only — Online delivery will be available soon. Please place your order and collect it from the
+            stall.
+        </p>
+
+        <div id="itemsContainer">
+
+            <!-- Chole Bhature -->
+            <div class="order-item">
+                <img src="images/chole_bhature.jpg">
+                <div class="item-info">
+                    <strong>Chole Bhature</strong>
+                    <span>₹40 per piece</span>
+                </div>
+                <div class="qty-box">
+                    <button onclick="decrease('chole')">−</button>
+                    <span id="qty-chole">0</span>
+                    <button onclick="increase('chole')">+</button>
+                </div>
+            </div>
+
+            <!-- Puri Chole -->
+            <div class="order-item">
+                <img src="images/puri_chole.jpg">
+                <div class="item-info">
+                    <strong>Puri Chole</strong>
+                    <span>₹20 per piece</span>
+                </div>
+                <div class="qty-box">
+                    <button onclick="decrease('puri')">−</button>
+                    <span id="qty-puri">0</span>
+                    <button onclick="increase('puri')">+</button>
+                </div>
+            </div>
+
+            <!-- Aloo Paratha -->
+            <div class="order-item">
+                <img src="images/aloo-paratha.jpg">
+                <div class="item-info">
+                    <strong>Aloo Paratha</strong>
+                    <span>₹30 per piece</span>
+                </div>
+                <div class="qty-box">
+                    <button onclick="decrease('aloo')">−</button>
+                    <span id="qty-aloo">0</span>
+                    <button onclick="increase('aloo')">+</button>
+                </div>
+            </div>
+
+            <!-- Gobi Paratha -->
+            <div class="order-item">
+                <img src="images/gobi-paratha.jpg">
+                <div class="item-info">
+                    <strong>Gobi Paratha</strong>
+                    <span>₹40 per piece</span>
+                </div>
+                <div class="qty-box">
+                    <button onclick="decrease('gobi')">−</button>
+                    <span id="qty-gobi">0</span>
+                    <button onclick="increase('gobi')">+</button>
+                </div>
+            </div>
+
+            <!-- Pav Bhaji -->
+            <div class="order-item">
+                <img src="images/pav-bhaji.jpg">
+                <div class="item-info">
+                    <strong>Pav Bhaji</strong>
+                    <span>₹45 per piece</span>
+                </div>
+                <div class="qty-box">
+                    <button onclick="decrease('pav')">−</button>
+                    <span id="qty-pav">0</span>
+                    <button onclick="increase('pav')">+</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CART BUTTON -->
+        <button class="cart-btn" onclick="openCart()">View Cart 🛒</button>
+
+    </section>
+
+    <!-- CART DRAWER -->
+    <div id="cartDrawer" class="cart-drawer">
+
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="closeCart()">✖</button>
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <strong>Total:</strong>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <p class="notice-text" style="margin-bottom: 10px;">
+                Takeaway Only — Online delivery will be available soon.
+            </p>
+
+            <button class="btn proceed-btn" onclick="proceedOrder()">Proceed on WhatsApp</button>
+            <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+/* =============================
+   MENU SECTION
+   ============================= */
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    background: #fff5e6;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.new-price {
+    color: var(--discount-green);
+    font-weight: 700;
+    font-size: 18px;
+}

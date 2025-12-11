@@ -1,0 +1,12 @@
+/* =============================
+   CONTACT US SECTION
+   ============================= */
+
+#contact a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#contact a.btn {
+    text-align: center;
+}

@@ -1,0 +1,115 @@
+/* =============================
+   NAVBAR
+   ============================= */
+
+.navbar {
+    background: var(--primary);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar-title {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* =============================
+   HAMBURGER ICON
+   ============================= */
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+}
+
+/* =============================
+   SLIDING SIDE MENU (PROFESSIONAL)
+   ============================= */
+/* previous */
+.side-menu {
+    position: fixed;
+    top: 69px;
+    right: -260px;
+    width: 40vw;
+    height: calc(100% - 69px);
+    background: #FFE8C6;
+
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    transition: right 0.35s ease, opacity 0.2s ease;
+    z-index: 250;
+    border-top-left-radius: 15px;
+}
+
+.side-menu a {
+    font-size: 17px;
+    font-weight: 600;
+    color: #3b2f2f;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.side-menu a:hover {
+    opacity: 0.7;
+}
+
+.menu-open {
+    right: 0 !important;
+}
+
+/* =============================
+   OVERLAY
+   ============================= */
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 200;
+}
+
+.overlay-active {
+    display: block;
+}
+
+/* =============================
+   DESKTOP VIEW
+   ============================= */
+
+/* @media (min-width: 760px) {
+    .hamburger {
+        display: none;
+    }
+    .side-menu {
+        display: none;
+    }
+} */

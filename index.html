@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinetra Bhojanalaya – Home</title>
+
+<!-- CSS MODULES -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/gallery.css">
+<link rel="stylesheet" href="css/reviews.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/order.css">
+
+
+
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader"><div class="loader-circle"></div></div>
+
+<!-- OVERLAY FOR HAMBURGER -->
+<div id="overlay"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <img src="images/logo.jpg" alt="Trinetra Bhojanalaya Logo">
+    <div class="navbar-title">Trinetra Bhojanalaya</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- SLIDING MENU WITH EMOJI ICONS -->
+<div id="sideMenu" class="side-menu">
+
+    <a href="#menu" onclick="closeMenu()">
+        🍽️ Menu
+    </a>
+
+    <a href="#gallery" onclick="closeMenu()">
+        🖼️ Gallery
+    </a>
+
+    <a href="#reviews" onclick="closeMenu()">
+        ⭐ Reviews
+    </a>
+
+    <a href="#contact" onclick="closeMenu()">
+        📍 Contact
+    </a>
+
+    <a href="order.html" onclick="closeMenu()">
+        🛒 Order Online
+    </a>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Fresh Chole Bhature & Pav Bhaji in Medahalli</h1>
+    <p>Authentic North Indian taste served daily.</p>
+    <a href="order.html" class="btn">🛒 Order Online</a>
+</section>
+
+<p class="notice-text">
+    Takeaway Only — Online delivery will be available soon. Please place your order and collect it from the stall.
+</p>
+
+
+<!-- MENU SECTION -->
+<section id="menu" class="section">
+    <h2>🍽️ Menu</h2>
+
+    <!-- Chole Bhature -->
+    <div class="menu-item">
+        <div class="menu-left">
+            <img src="images/chole_bhature.jpg" alt="Chole Bhature">
+            <div>
+                <strong>Chole Bhature (2 pcs)</strong><br>
+                <span class="new-price">₹80</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Puri Chole -->
+    <div class="menu-item">
+        <div class="menu-left">
+            <img src="images/puri_chole.jpg" alt="Puri Chole">
+            <div>
+                <strong>Puri Chole (3 pcs)</strong><br>
+                <span class="new-price">₹60</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aloo Paratha -->
+    <div class="menu-item">
+        <div class="menu-left">
+            <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
+            <div>
+                <strong>Aloo Paratha (2 pcs)</strong><br>
+                <span class="new-price">₹60</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gobi Paratha -->
+    <div class="menu-item">
+        <div class="menu-left">
+            <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
+            <div>
+                <strong>Gobi Paratha (2 pcs)</strong><br>
+                <span class="new-price">₹80</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pav Bhaji -->
+    <div class="menu-item">
+        <div class="menu-left">
+            <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
+            <div>
+                <strong>Pav Bhaji (2 pav)</strong><br>
+                <span class="new-price">₹90</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="section">
+    <h2>🖼️ Gallery</h2>
+
+    <div class="gallery-grid">
+        <img src="images/chole_bhature.jpg" alt="Chole Bhature">
+        <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
+        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
+        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
+        <img src="images/shop_image_1.jpg" alt="Shop Image 1">
+        <img src="images/shop_image_2.jpg" alt="Shop Image 2">
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+    <h2>⭐ Customer Reviews</h2>
+
+    <div class="review-card">
+        <img src="images/chole_bhature.jpg" alt="Chole Bhature Review">
+        <div>
+            <div class="review-stars">★★★★★</div>
+            “Best chole bhature near KR Puram!”
+        </div>
+    </div>
+
+    <div class="review-card">
+        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji Review">
+        <div>
+            <div class="review-stars">★★★★★</div>
+            “Pav Bhaji is delicious and fresh!”
+        </div>
+    </div>
+
+    <div class="review-card">
+        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha Review">
+        <div>
+            <div class="review-stars">★★★★☆</div>
+            “Aloo paratha tastes homely & soft.”
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>📍 Contact Us</h2>
+
+    <p><strong>Phone:</strong> 
+        <a href="tel:+918496004096">+91 84960 04096</a>
+    </p>
+
+    <p><strong>Address:</strong><br>
+        Kithaganuru Main Road, Parvathi Nagar,<br>
+        Medahalli, Bengaluru – 560049
+    </p>
+
+    <a 
+        href="https://maps.app.goo.gl/SHSNK1bjVZgPxA116" 
+        target="_blank" 
+        class="btn">
+        View Location on Google Maps
+    </a>
+</section>
+
+<footer>
+    © 2025 Trinetra Bhojanalaya – All Rights Reserved.
+</footer>
+
+<!-- JS -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

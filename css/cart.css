@@ -1,0 +1,114 @@
+/* ==============================
+   CART DRAWER (ZOMATO STYLE)
+   ============================== */
+
+.cart-drawer {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    background: white;
+    height: 70%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 18px rgba(0,0,0,0.25);
+    transition: bottom 0.35s ease;
+
+    padding: 16px 12px;
+    padding-right: calc(env(safe-area-inset-right) + 12px); /* FIX */
+
+    box-sizing: border-box;   /* THE MOST IMPORTANT LINE */
+
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* SCROLLABLE ITEM AREA */
+#cartItems {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 12px;
+    padding-right: 4px;
+}
+
+.cart-row {
+    position: relative;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-row .item-label {
+    display: inline-block;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-row .price {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    font-weight: 600;
+    background: white;
+    padding-left: 6px;
+    white-space: nowrap;
+    z-index: 20;
+}
+
+/* FOOTER */
+.cart-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 14px;
+}
+
+/* Total row */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* BUTTONS */
+.proceed-btn {
+    background: #1c9c34;
+    padding: 14px;
+    width: 100%;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.clear-btn {
+    background: #d43131;
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+}
