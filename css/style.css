@@ -133,7 +133,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; }
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-size: 24px; font-weight: 900; color: white; letter-spacing: -0.5px; }
-.nav-brand img { width: 44px; height: 44px; border-radius: 50%; box-shadow: 0 0 15px rgba(255,94,0,0.5); }
+.nav-brand img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; aspect-ratio: 1/1; box-shadow: 0 0 15px rgba(255,94,0,0.5); }
 .nav-links { display: flex; gap: 40px; }
 .nav-links a { text-decoration: none; color: white; font-weight: 600; font-size: 16px; transition: color 0.3s; }
 .nav-links a:hover { color: var(--brand-orange); }
@@ -275,7 +275,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; }
 
 /* FOOTER */
 footer { padding: 60px 0 120px 0; background: var(--bg-dark); }
-.footer-logo { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 24px; opacity: 0.5; }
+.footer-logo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; aspect-ratio: 1/1; margin-bottom: 24px; opacity: 0.5; }
 footer p { color: var(--text-muted); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
 
 /* FLOATING DOCK */
