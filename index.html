@@ -1,222 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trinetra Bhojanalaya – Home</title>
-
-<!-- CSS MODULES -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/hero.css">
-<link rel="stylesheet" href="css/menu.css">
-<link rel="stylesheet" href="css/gallery.css">
-<link rel="stylesheet" href="css/reviews.css">
-<link rel="stylesheet" href="css/contact.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/order.css">
-<meta name="google-site-verification" content="Kk4uvrdK02LfhYbAH8ET1pV6Cz10dykLA3FTlA07lVE" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FD2B3KNNN9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FD2B3KNNN9');
-</script>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinetra Bhojanalaya | Hot. Fresh. Delicious.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader"><div class="loader-circle"></div></div>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <img src="images/logo.jpg" alt="Logo">
+                <span>Trinetra</span>
+            </a>
+            <div class="nav-links">
+                <a href="#best-sellers">Top Picks</a>
+                <a href="#menu">Full Menu</a>
+                <a href="#reviews">Reviews</a>
+            </div>
+            <a href="tel:+918496004096" class="btn btn-outline nav-cta">Call Now</a>
+        </div>
+    </nav>
 
-<!-- OVERLAY FOR HAMBURGER -->
-<div id="overlay"></div>
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-bg-elements">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <img src="images/logo.jpg" alt="Trinetra Bhojanalaya Logo">
-    <div class="navbar-title">Trinetra Bhojanalaya</div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-    </div>
-</nav>
-
-<!-- SLIDING MENU WITH EMOJI ICONS -->
-<div id="sideMenu" class="side-menu">
-
-    <a href="#menu" onclick="closeMenu()">
-        🍽️ Menu
-    </a>
-
-    <a href="#gallery" onclick="closeMenu()">
-        🖼️ Gallery
-    </a>
-
-    <a href="#reviews" onclick="closeMenu()">
-        ⭐ Reviews
-    </a>
-
-    <a href="#contact" onclick="closeMenu()">
-        📍 Contact
-    </a>
-
-    <a href="order.html" onclick="closeMenu()">
-        🛒 Order Online
-    </a>
-
-</div>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>Fresh Chole Bhature & Pav Bhaji in Medahalli</h1>
-    <p>Authentic North Indian taste served daily.</p>
-    <a href="order.html" class="btn">🛒 Order Online</a>
-</section>
-
-<p class="notice-text">
-    Takeaway Only — Online delivery will be available soon. Please place your order and collect it from the stall.
-</p>
-
-
-<!-- MENU SECTION -->
-<section id="menu" class="section">
-    <h2>🍽️ Menu</h2>
-
-    <!-- Chole Bhature -->
-    <div class="menu-item">
-        <div class="menu-left">
-            <img src="images/chole_bhature.jpg" alt="Chole Bhature">
-            <div>
-                <strong>Chole Bhature (2 pcs)</strong><br>
-                <span class="new-price">₹80</span>
+        <div class="container hero-container">
+            <div class="hero-content" data-parallax="0.2">
+                <div class="badge-pill mb-4 glow-pulse">🔥 Medahalli's Favorite</div>
+                <h1 class="hero-title">
+                    <span class="text-gradient">Hot.</span><br>
+                    <span class="text-gradient-alt">Fresh.</span><br>
+                    Delicious.
+                </h1>
+                <p class="hero-text">The most vibrant North Indian street food experience. Bursting with flavor, served
+                    piping hot.</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="openCart(); return false;" class="btn btn-primary btn-massive shadow-glow">Order Now</a>
+                    <a href="#menu" class="btn btn-secondary btn-massive">Full Menu</a>
+                </div>
+                <div class="trust-stats">
+                    <div class="stat"><span class="icon">⭐</span> 4.9/5 Rating</div>
+                    <div class="stat"><span class="icon">❤️</span> 10,000+ Happy Customers</div>
+                    <div class="stat"><span class="icon">🛵</span> Fast Takeaway</div>
+                </div>
+            </div>
+            <div class="hero-visual" data-parallax="-0.1">
+                <div class="visual-stack">
+                    <div class="visual-card visual-card-main float-anim">
+                        <img src="images/chole_bhature.jpg" alt="Chole Bhature">
+                        <div class="visual-tag">⭐ Top Rated</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Puri Chole -->
-    <div class="menu-item">
-        <div class="menu-left">
-            <img src="images/puri_chole.jpg" alt="Puri Chole">
-            <div>
-                <strong>Puri Chole (3 pcs)</strong><br>
-                <span class="new-price">₹60</span>
+    <!-- BEST SELLERS (HIGHLIGHT SECTION) -->
+    <section class="section best-sellers offset-bg" id="best-sellers">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2 class="section-title">Crowd <span class="text-gradient">Favorites</span></h2>
+                <p class="section-desc">The dishes that keep our customers coming back for more.</p>
+            </div>
+
+            <div class="highlight-grid">
+                <!-- Highlight Card 1 -->
+                <div class="highlight-card reveal fade-up">
+                    <div class="highlight-img">
+                        <img src="images/chole_bhature.jpg" alt="Chole Bhature">
+                        <div class="highlight-badge">#1 Best Seller</div>
+                    </div>
+                    <div class="highlight-info">
+                        <h3>Legendary Chole Bhature</h3>
+                        <p>Perfectly spiced chickpea curry paired with two massive, fluffy, cloud-like bhaturas. It's an
+                            explosion of taste.</p>
+                        <div class="highlight-footer">
+                            <span class="highlight-price">₹80</span>
+                            <div class="qty-action" id="action-chole">
+                                <button class="btn btn-primary btn-sm btn-add" onclick="increase('chole')">Add +</button>
+                                <div class="qty-box" style="display: none;">
+                                    <button onclick="decrease('chole')">−</button>
+                                    <span id="qty-chole">1</span>
+                                    <button onclick="increase('chole')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight Card 2 -->
+                <div class="highlight-card reveal fade-up" style="transition-delay: 0.2s;">
+                    <div class="highlight-img">
+                        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
+                        <div class="highlight-badge bg-yellow">Must Try</div>
+                    </div>
+                    <div class="highlight-info">
+                        <h3>Mumbai-Style Pav Bhaji</h3>
+                        <p>Rich, buttery mashed vegetable curry toasted with our signature spice blend. Served with
+                            buttery soft pav.</p>
+                        <div class="highlight-footer">
+                            <span class="highlight-price">₹90</span>
+                            <div class="qty-action" id="action-pav">
+                                <button class="btn btn-primary btn-sm btn-add" onclick="increase('pav')">Add +</button>
+                                <div class="qty-box" style="display: none;">
+                                    <button onclick="decrease('pav')">−</button>
+                                    <span id="qty-pav">1</span>
+                                    <button onclick="increase('pav')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Aloo Paratha -->
-    <div class="menu-item">
-        <div class="menu-left">
-            <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
-            <div>
-                <strong>Aloo Paratha (2 pcs)</strong><br>
-                <span class="new-price">₹60</span>
+    <!-- FULL MENU -->
+    <section class="section menu" id="menu">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2 class="section-title">The <span class="text-gradient-alt">Full Menu</span></h2>
+                <p class="section-desc">Every dish crafted fresh upon order.</p>
+            </div>
+
+            <div class="menu-bento">
+                <div class="menu-card reveal scale-in">
+                    <div class="menu-card-img">
+                        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Aloo Paratha <span class="badge-mini bg-gray">Homestyle</span></h4>
+                        <p>Stuffed with seasoned potatoes, served warm.</p>
+                        <div class="menu-card-bottom">
+                            <span class="price">₹60</span>
+                            <div class="qty-action" id="action-aloo">
+                                <button class="add-btn btn-add" onclick="increase('aloo')">+</button>
+                                <div class="qty-box" style="display: none;">
+                                    <button onclick="decrease('aloo')">−</button>
+                                    <span id="qty-aloo">1</span>
+                                    <button onclick="increase('aloo')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card reveal scale-in" style="transition-delay: 0.1s;">
+                    <div class="menu-card-img">
+                        <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Gobi Paratha <span class="badge-mini bg-red">Spicy 🌶️</span></h4>
+                        <p>Fresh grated cauliflower wrapped in soft wheat.</p>
+                        <div class="menu-card-bottom">
+                            <span class="price">₹80</span>
+                            <div class="qty-action" id="action-gobi">
+                                <button class="add-btn btn-add" onclick="increase('gobi')">+</button>
+                                <div class="qty-box" style="display: none;">
+                                    <button onclick="decrease('gobi')">−</button>
+                                    <span id="qty-gobi">1</span>
+                                    <button onclick="increase('gobi')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card reveal scale-in" style="transition-delay: 0.2s;">
+                    <div class="menu-card-img">
+                        <img src="images/puri_chole.jpg" alt="Puri Chole">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Puri Chole <span class="badge-mini bg-orange">Top Rated ⭐</span></h4>
+                        <p>Three golden-fried puris with rich chole masala.</p>
+                        <div class="menu-card-bottom">
+                            <span class="price">₹60</span>
+                            <div class="qty-action" id="action-puri">
+                                <button class="add-btn btn-add" onclick="increase('puri')">+</button>
+                                <div class="qty-box" style="display: none;">
+                                    <button onclick="decrease('puri')">−</button>
+                                    <span id="qty-puri">1</span>
+                                    <button onclick="increase('puri')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card menu-card-special reveal scale-in" style="transition-delay: 0.3s;">
+                    <div class="special-content">
+                        <h3>Craving Something Specific?</h3>
+                        <p>Give us a call. We prepare fresh batches daily!</p>
+                        <a href="tel:+918496004096" class="btn btn-primary mt-3">Call Kitchen</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Gobi Paratha -->
-    <div class="menu-item">
-        <div class="menu-left">
-            <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
-            <div>
-                <strong>Gobi Paratha (2 pcs)</strong><br>
-                <span class="new-price">₹80</span>
+    <!-- ABOUT & VIBE -->
+    <section class="section about offset-bg" id="about">
+        <div class="container about-container reveal">
+            <div class="about-poster">
+                <img src="images/shop_image_1.jpg" alt="Kitchen">
+                <div class="poster-overlay">
+                    <h2>Street Food<br>Elevated.</h2>
+                </div>
+            </div>
+            <div class="about-copy">
+                <h2>No compromises.<br><span class="text-gradient">Just flavor.</span></h2>
+                <p>Welcome to Trinetra Bhojanalaya. We don't do boring food. Every single dish that leaves our kitchen
+                    in Medahalli is packed with unapologetic, bold North Indian flavors.</p>
+                <div class="vibe-tags">
+                    <span class="vtag">🔥 Cooked Fresh</span>
+                    <span class="vtag">🌿 Pure Ingredients</span>
+                    <span class="vtag">💯 100% Taste</span>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Pav Bhaji -->
-    <div class="menu-item">
-        <div class="menu-left">
-            <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
-            <div>
-                <strong>Pav Bhaji (2 pav)</strong><br>
-                <span class="new-price">₹90</span>
+    <!-- REVIEWS (Masonry/Dynamic feel) -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The <span class="text-gradient">Hype</span></h2>
+            </div>
+            <div class="review-track">
+                <div class="review-box reveal fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Wow! Aalu paratha here is so delicious that it has become my daily breakfast spot. The food is freshly cooked, which makes it even better!"</p>
+                    <div class="reviewer">
+                        <img src="images/rohit.png" alt="Rohit">
+                        <span>Rohit</span>
+                    </div>
+                </div>
+                <div class="review-box reveal fade-up" style="transition-delay: 0.1s;">
+                    <div class="stars">★★★★★</div>
+                    <p>"Crazy and delicious Chole Bhature and stuffed aloo paratha that will make your tummy full. Clean workspace and friendly service!"</p>
+                    <div class="reviewer">
+                        <img src="images/supriya.png" alt="Supriya">
+                        <span>Supriya</span>
+                    </div>
+                </div>
+                <div class="review-box reveal fade-up" style="transition-delay: 0.2s;">
+                    <div class="stars">★★★★★</div>
+                    <p>"Food is really great, yummy taste and very hygienic. Everything is freshly prepared."</p>
+                    <div class="reviewer">
+                        <img src="images/swarup.png" alt="Swarup">
+                        <span>Swarup</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-</section>
+    <!-- CONTACT / BOTTOM CTA -->
+    <section class="section contact offset-bg" id="contact">
+        <div class="container">
+            <div class="contact-card reveal">
+                <div class="contact-info">
+                    <h2>Ready to <br><span class="text-gradient-alt">Feast?</span></h2>
+                    <p>Open daily from <strong>8:00 AM – 10:00 PM</strong>. Takeaway only.</p>
+                    <h3 class="phone-massive">+91 84960 04096</h3>
+                    <div class="contact-buttons mt-4">
+                        <a href="#" onclick="openCart(); return false;" class="btn btn-primary btn-large shadow-glow">Order Online</a>
+                        <a href="https://maps.app.goo.gl/SHSNK1bjVZgPxA116" target="_blank"
+                            class="btn btn-secondary btn-large">Get Directions</a>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <img src="images/shop_image_2.jpg" alt="Shop">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- GALLERY SECTION -->
-<section id="gallery" class="section">
-    <h2>🖼️ Gallery</h2>
+    <footer>
+        <div class="container text-center">
+            <img src="images/logo.jpg" alt="Logo" class="footer-logo">
+            <p>© 2026 Trinetra Bhojanalaya. Bold flavors only.</p>
+        </div>
+    </footer>
 
-    <div class="gallery-grid">
-        <img src="images/chole_bhature.jpg" alt="Chole Bhature">
-        <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
-        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
-        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
-        <img src="images/shop_image_1.jpg" alt="Shop Image 1">
-        <img src="images/shop_image_2.jpg" alt="Shop Image 2">
-    </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="section">
-    <h2>⭐ Customer Reviews</h2>
-
-    <div class="review-card">
-        <img src="images/chole_bhature.jpg" alt="Chole Bhature Review">
-        <div>
-            <div class="review-stars">★★★★★</div>
-            “Best chole bhature near KR Puram!”
+    <!-- CART DRAWER & UI -->
+    <div id="overlay"></div>
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>🛒 Your Cart</h3>
+            <button class="close-cart" onclick="closeCart()">✖</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <strong>Total:</strong>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Takeaway Only — Pay securely on collection.</p>
+            <button class="btn btn-primary btn-large btn-block" onclick="proceedOrder()">Checkout via WhatsApp</button>
+            <button class="btn btn-outline btn-block" onclick="clearCart()">Clear Cart</button>
         </div>
     </div>
 
-    <div class="review-card">
-        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji Review">
-        <div>
-            <div class="review-stars">★★★★★</div>
-            “Pav Bhaji is delicious and fresh!”
-        </div>
+    <!-- FLOATING ACTIONS -->
+    <div class="floating-dock">
+        <a href="#" onclick="openCart(); return false;" class="dock-btn dock-order">
+            <span class="icon">🛒</span>
+            <span class="text">Order Now</span>
+        </a>
+        <a href="https://wa.me/918496004096" target="_blank" class="dock-btn dock-wa floating-wa-anim">
+            <span class="icon">💬</span>
+        </a>
     </div>
 
-    <div class="review-card">
-        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha Review">
-        <div>
-            <div class="review-stars">★★★★☆</div>
-            “Aloo paratha tastes homely & soft.”
-        </div>
-    </div>
-</section>
+    <!-- JS -->
+    <script src="js/cart.js"></script>
+    <script>
+        // Animations and dynamic features
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>📍 Contact Us</h2>
+        // Reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
 
-    <p><strong>Phone:</strong> 
-        <a href="tel:+918496004096">+91 84960 04096</a>
-    </p>
+        revealElements.forEach(el => revealOnScroll.observe(el));
 
-    <p><strong>Address:</strong><br>
-        Kithaganuru Main Road, Parvathi Nagar,<br>
-        Medahalli, Bengaluru – 560049
-    </p>
-
-    <a 
-        href="https://maps.app.goo.gl/SHSNK1bjVZgPxA116" 
-        target="_blank" 
-        class="btn">
-        View Location on Google Maps
-    </a>
-</section>
-
-<footer>
-    © 2025 Trinetra Bhojanalaya – All Rights Reserved.
-</footer>
-
-<!-- JS -->
-<script src="js/main.js"></script>
-
+        // Subtle Parallax on Hero elements
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            document.querySelectorAll("[data-parallax]").forEach(function (shift) {
+                const position = shift.getAttribute("data-parallax");
+                const x = (window.innerWidth - e.pageX * position) / 90;
+                const y = (window.innerHeight - e.pageY * position) / 90;
+                shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        }
+    </script>
 </body>
+
 </html>
-
-

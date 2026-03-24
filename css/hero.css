@@ -3,27 +3,98 @@
    ============================= */
 
 .hero {
-    background: white;
-    margin: 16px;
-    padding: 22px;
-    border-radius: 14px;
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+    margin: 32px auto;
+    padding: 80px 32px;
+    width: min(calc(100% - 48px), 1200px);
+    border-radius: var(--border-radius-lg);
     text-align: center;
-    animation: fade 1s ease;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    animation: slideUp 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid rgba(233, 90, 12, 0.1);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.08;
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--primary-dark) 0%, transparent 70%);
+    opacity: 0.06;
+    border-radius: 50%;
 }
 
 .hero h1 {
-    margin: 0;
-    font-size: 22px;
+    font-size: clamp(32px, 6vw, 56px);
     color: var(--brown);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.15;
 }
 
 .hero p {
-    margin-top: 6px;
-    font-size: 14px;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-inline: auto;
+    position: relative;
+    z-index: 1;
 }
 
-@keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.hero .btn {
+    font-size: 18px;
+    padding: 16px 40px;
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(40px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 50px 20px;
+        margin: 16px auto;
+    }
+    .hero::before { width: 200px; height: 200px; }
+    .hero::after { width: 200px; height: 200px; }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
 }

@@ -1,111 +1,109 @@
-// PRICE LIST
-const prices = {
-    chole: 40,
-    puri: 20,
-    aloo: 30,
-    gobi: 40,
-    pav: 45
+const prices = { chole: 80, pav: 90, aloo: 60, gobi: 80, puri: 60 };
+let cart = { chole: 0, pav: 0, aloo: 0, gobi: 0, puri: 0 };
+const itemNames = {
+    chole: "Chole Bhature", pav: "Pav Bhaji",
+    aloo: "Aloo Paratha", gobi: "Gobi Paratha", puri: "Puri Chole"
 };
 
-let cart = {
-    chole: 0,
-    puri: 0,
-    aloo: 0,
-    gobi: 0,
-    pav: 0
-};
-
-// UPDATE UI
 function updateUI(item) {
-    document.getElementById(`qty-${item}`).textContent = cart[item];
+    const qtySpan = document.getElementById(`qty-${item}`);
+    const actionDiv = document.getElementById(`action-${item}`);
+    const btnAdd = actionDiv.querySelector('.btn-add');
+    const qtyBox = actionDiv.querySelector('.qty-box');
+
+    if (cart[item] > 0) {
+        btnAdd.style.display = 'none';
+        qtyBox.style.display = 'flex';
+        qtySpan.textContent = cart[item];
+    } else {
+        btnAdd.style.display = 'inline-flex';
+        qtyBox.style.display = 'none';
+    }
+    
     updateCartDrawer();
+    updateDockIndicator();
 }
 
-// Increase qty
-function increase(item) {
-    cart[item]++;
-    updateUI(item);
-}
+function increase(item) { cart[item]++; updateUI(item); }
+function decrease(item) { if (cart[item] > 0) { cart[item]--; updateUI(item); } }
 
-// Decrease qty
-function decrease(item) {
-    if (cart[item] > 0) cart[item]--;
-    updateUI(item);
-}
-
-// Open cart drawer
 function openCart() {
-    document.getElementById("cartDrawer").style.bottom = "0";
+    document.getElementById("cartDrawer").classList.add("open");
     document.getElementById("overlay").classList.add("overlay-active");
 }
 
-// Close cart drawer
 function closeCart() {
-    document.getElementById("cartDrawer").style.bottom = "-100%";
+    document.getElementById("cartDrawer").classList.remove("open");
     document.getElementById("overlay").classList.remove("overlay-active");
 }
 
-// Close cart on outside click
-document.addEventListener("click", function (e) {
-    const drawer = document.getElementById("cartDrawer");
-    const cartBtn = document.querySelector(".cart-btn");
+document.getElementById("overlay").addEventListener("click", closeCart);
 
-    const clickedInsideDrawer = drawer.contains(e.target);
-    const clickedCartButton = e.target.closest(".cart-btn");
-
-    if (!clickedInsideDrawer && !clickedCartButton) {
-        closeCart();
-    }
-});
-
-// Clear cart
 function clearCart() {
     for (let item in cart) {
         cart[item] = 0;
-        document.getElementById(`qty-${item}`).textContent = 0;
+        updateUI(item);
     }
-    updateCartDrawer();
 }
 
-// Update drawer content
 function updateCartDrawer() {
     const cartItemsDiv = document.getElementById("cartItems");
     cartItemsDiv.innerHTML = "";
-
     let total = 0;
-
+    
+    let hasItems = false;
     for (let item in cart) {
         if (cart[item] > 0) {
+            hasItems = true;
             let subtotal = cart[item] * prices[item];
             total += subtotal;
-
             cartItemsDiv.innerHTML += `
                 <div class="cart-row">
-                    <span class="item-label">${item.toUpperCase()} × ${cart[item]}</span>
+                    <span class="item-label">${itemNames[item]} <span style="color:#9CA3AF;font-size:14px;margin-left:8px;">× ${cart[item]}</span></span>
                     <span class="price">₹${subtotal}</span>
                 </div>
             `;
         }
     }
-
+    
+    if (!hasItems) {
+        cartItemsDiv.innerHTML = `<p style="color:#9CA3AF; text-align:center; margin-top: 40px;">Your cart is empty.</p>`;
+    }
+    
     document.getElementById("cartTotal").textContent = `₹${total}`;
 }
 
-// WhatsApp checkout
-function proceedOrder() {
-    let msg = "Hello, I want to order:\n\n";
-    let total = 0;
+function updateDockIndicator() {
+    let count = Object.values(cart).reduce((a, b) => a + b, 0);
+    const dockText = document.querySelector('.dock-order .text');
+    if (count > 0) {
+        dockText.textContent = `View Cart (${count})`;
+    } else {
+        dockText.textContent = `Order Now`;
+    }
+}
 
+function proceedOrder() {
+    let count = Object.values(cart).reduce((a, b) => a + b, 0);
+    if(count === 0) {
+       alert("Please add items to your cart first.");
+       return;
+    }
+
+    let msg = "Hello Trinetra Bhojanalaya! I'd like to order:\n\n";
+    let total = 0;
+    
     for (let item in cart) {
         if (cart[item] > 0) {
             let subtotal = cart[item] * prices[item];
             total += subtotal;
-            msg += `${item.toUpperCase()} × ${cart[item]} = ₹${subtotal}\n`;
+            msg += `▪ ${itemNames[item]} × ${cart[item]} = ₹${subtotal}\n`;
         }
     }
-
-    msg += `\nTotal = ₹${total}`;
-
-    window.location.href =
-        `https://wa.me/918496004096?text=${encodeURIComponent(msg)}`;
+    
+    msg += `\n*Total = ₹${total}*\n\n(Takeaway Order)`;
+    window.location.href = `https://wa.me/918496004096?text=${encodeURIComponent(msg)}`;
 }
+
+// Initial hydration
+updateCartDrawer();
