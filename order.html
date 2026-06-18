@@ -40,7 +40,37 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Existing site layout and cart logic can be added here by the developer. -->
+    <header class="premium-header">
+        <nav class="container">
+            <div class="logo">Trinetra Bhojanalaya</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="order.html" class="active">Order Online</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="menu-hero">
+            <h1>Premium Satvik Experience</h1>
+            <p>Pure, no-onion, no-garlic delicacies delivered to you.</p>
+        </section>
+        
+        <div id="menu-container" class="grid-layout">
+            <!-- Menu items injected by menuData.js -->
+        </div>
+
+        <aside id="cart-sidebar" class="cart-premium">
+            <h2>Your Order</h2>
+            <div id="cart-items"></div>
+            <button id="checkout-btn" class="btn-primary">Proceed to Checkout</button>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 Trinetra Bhojanalaya. All Rights Reserved.</p>
+    </footer>
+
     <script src="js/menuData.js"></script>
     <script src="js/cart.js"></script>
 </body>
