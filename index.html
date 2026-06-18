@@ -20,7 +20,8 @@
         <div class="nav-container">
             <a href="#" class="nav-brand">
                 <img src="images/logo.jpg" alt="Logo">
-                <span>Trinetra</span>
+                <span class="brand-full">Trinetra Bhojanalaya</span>
+                <span class="brand-short">Trinetra Bhojanalaya</span>
             </a>
             <div class="nav-links">
                 <a href="#best-sellers">Top Picks</a>
@@ -42,29 +43,34 @@
             <div class="hero-content" data-parallax="0.2">
                 <div class="badge-pill mb-4 glow-pulse">🔥 Medahalli's Favorite</div>
                 <h1 class="hero-title">
-                    <span class="text-gradient">Hot.</span><br>
-                    <span class="text-gradient-alt">Fresh.</span><br>
+
+                    <span class="text-gradient-alt">Fresh.</span>
                     Delicious.
                 </h1>
                 <p class="hero-text">The most vibrant North Indian street food experience. Bursting with flavor, served
                     piping hot.</p>
                 <div class="hero-buttons">
-                    <a href="#" onclick="openCart(); return false;" class="btn btn-primary btn-massive shadow-glow">Order Now</a>
+                    <a href="#" onclick="openCart(); return false;"
+                        class="btn btn-primary btn-massive shadow-glow">Order Now</a>
                     <a href="#menu" class="btn btn-secondary btn-massive">Full Menu</a>
                 </div>
-                <div class="trust-stats">
-                    <div class="stat"><span class="icon">⭐</span> 4.9/5 Rating</div>
-                    <div class="stat"><span class="icon">❤️</span> 10,000+ Happy Customers</div>
-                    <div class="stat"><span class="icon">🛵</span> Fast Takeaway</div>
-                </div>
+
             </div>
             <div class="hero-visual" data-parallax="-0.1">
                 <div class="visual-stack">
+                    <div class="trust-stats">
+                        <div class="stat"><span class="icon">⭐</span> 5/5 Rating</div>
+                        <div class="stat">
+                            <span class="icon">❤️</span>10,000+<br />Happy Customers
+                        </div>
+                        <div class="stat"><span class="icon">🛵</span> Fast Takeaway</div>
+                    </div>
                     <div class="visual-card visual-card-main float-anim">
                         <img src="images/chole_bhature.jpg" alt="Chole Bhature">
                         <div class="visual-tag">⭐ Top Rated</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </header>
@@ -77,54 +83,8 @@
                 <p class="section-desc">The dishes that keep our customers coming back for more.</p>
             </div>
 
-            <div class="highlight-grid">
-                <!-- Highlight Card 1 -->
-                <div class="highlight-card reveal fade-up">
-                    <div class="highlight-img">
-                        <img src="images/chole_bhature.jpg" alt="Chole Bhature">
-                        <div class="highlight-badge">#1 Best Seller</div>
-                    </div>
-                    <div class="highlight-info">
-                        <h3>Legendary Chole Bhature</h3>
-                        <p>Perfectly spiced chickpea curry paired with two massive, fluffy, cloud-like bhaturas. It's an
-                            explosion of taste.</p>
-                        <div class="highlight-footer">
-                            <span class="highlight-price">₹80</span>
-                            <div class="qty-action" id="action-chole">
-                                <button class="btn btn-primary btn-sm btn-add" onclick="increase('chole')">Add +</button>
-                                <div class="qty-box" style="display: none;">
-                                    <button onclick="decrease('chole')">−</button>
-                                    <span id="qty-chole">1</span>
-                                    <button onclick="increase('chole')">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Highlight Card 2 -->
-                <div class="highlight-card reveal fade-up" style="transition-delay: 0.2s;">
-                    <div class="highlight-img">
-                        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
-                        <div class="highlight-badge bg-yellow">Must Try</div>
-                    </div>
-                    <div class="highlight-info">
-                        <h3>Mumbai-Style Pav Bhaji</h3>
-                        <p>Rich, buttery mashed vegetable curry toasted with our signature spice blend. Served with
-                            buttery soft pav.</p>
-                        <div class="highlight-footer">
-                            <span class="highlight-price">₹90</span>
-                            <div class="qty-action" id="action-pav">
-                                <button class="btn btn-primary btn-sm btn-add" onclick="increase('pav')">Add +</button>
-                                <div class="qty-box" style="display: none;">
-                                    <button onclick="decrease('pav')">−</button>
-                                    <span id="qty-pav">1</span>
-                                    <button onclick="increase('pav')">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="highlight-grid" id="bestSellersGrid">
+                <!-- Will be dynamically populated from js/menuData.js -->
             </div>
         </div>
     </section>
@@ -137,77 +97,12 @@
                 <p class="section-desc">Every dish crafted fresh upon order.</p>
             </div>
 
-            <div class="menu-bento">
-                <div class="menu-card reveal scale-in">
-                    <div class="menu-card-img">
-                        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
-                    </div>
-                    <div class="menu-card-body">
-                        <h4>Aloo Paratha <span class="badge-mini bg-gray">Homestyle</span></h4>
-                        <p>Stuffed with seasoned potatoes, served warm.</p>
-                        <div class="menu-card-bottom">
-                            <span class="price">₹60</span>
-                            <div class="qty-action" id="action-aloo">
-                                <button class="add-btn btn-add" onclick="increase('aloo')">+</button>
-                                <div class="qty-box" style="display: none;">
-                                    <button onclick="decrease('aloo')">−</button>
-                                    <span id="qty-aloo">1</span>
-                                    <button onclick="increase('aloo')">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-tabs" id="menuTabs">
+                <!-- Will be dynamically populated from js/menuData.js -->
+            </div>
 
-                <div class="menu-card reveal scale-in" style="transition-delay: 0.1s;">
-                    <div class="menu-card-img">
-                        <img src="images/gobi-paratha.jpg" alt="Gobi Paratha">
-                    </div>
-                    <div class="menu-card-body">
-                        <h4>Gobi Paratha <span class="badge-mini bg-red">Spicy 🌶️</span></h4>
-                        <p>Fresh grated cauliflower wrapped in soft wheat.</p>
-                        <div class="menu-card-bottom">
-                            <span class="price">₹80</span>
-                            <div class="qty-action" id="action-gobi">
-                                <button class="add-btn btn-add" onclick="increase('gobi')">+</button>
-                                <div class="qty-box" style="display: none;">
-                                    <button onclick="decrease('gobi')">−</button>
-                                    <span id="qty-gobi">1</span>
-                                    <button onclick="increase('gobi')">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card reveal scale-in" style="transition-delay: 0.2s;">
-                    <div class="menu-card-img">
-                        <img src="images/puri_chole.jpg" alt="Puri Chole">
-                    </div>
-                    <div class="menu-card-body">
-                        <h4>Puri Chole <span class="badge-mini bg-orange">Top Rated ⭐</span></h4>
-                        <p>Three golden-fried puris with rich chole masala.</p>
-                        <div class="menu-card-bottom">
-                            <span class="price">₹60</span>
-                            <div class="qty-action" id="action-puri">
-                                <button class="add-btn btn-add" onclick="increase('puri')">+</button>
-                                <div class="qty-box" style="display: none;">
-                                    <button onclick="decrease('puri')">−</button>
-                                    <span id="qty-puri">1</span>
-                                    <button onclick="increase('puri')">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card menu-card-special reveal scale-in" style="transition-delay: 0.3s;">
-                    <div class="special-content">
-                        <h3>Craving Something Specific?</h3>
-                        <p>Give us a call. We prepare fresh batches daily!</p>
-                        <a href="tel:+918496004096" class="btn btn-primary mt-3">Call Kitchen</a>
-                    </div>
-                </div>
+            <div class="menu-bento" id="fullMenuGrid">
+                <!-- Will be dynamically populated from js/menuData.js -->
             </div>
         </div>
     </section>
@@ -243,7 +138,8 @@
             <div class="review-track">
                 <div class="review-box reveal fade-up">
                     <div class="stars">★★★★★</div>
-                    <p>"Wow! Aalu paratha here is so delicious that it has become my daily breakfast spot. The food is freshly cooked, which makes it even better!"</p>
+                    <p>"Wow! Aalu paratha here is so delicious that it has become my daily breakfast spot. The food is
+                        freshly cooked, which makes it even better!"</p>
                     <div class="reviewer">
                         <img src="images/rohit.png" alt="Rohit">
                         <span>Rohit</span>
@@ -251,7 +147,8 @@
                 </div>
                 <div class="review-box reveal fade-up" style="transition-delay: 0.1s;">
                     <div class="stars">★★★★★</div>
-                    <p>"Crazy and delicious Chole Bhature and stuffed aloo paratha that will make your tummy full. Clean workspace and friendly service!"</p>
+                    <p>"Crazy and delicious Chole Bhature and stuffed aloo paratha that will make your tummy full. Clean
+                        workspace and friendly service!"</p>
                     <div class="reviewer">
                         <img src="images/supriya.png" alt="Supriya">
                         <span>Supriya</span>
@@ -266,6 +163,7 @@
                     </div>
                 </div>
             </div>
+            <div class="swipe-hint">Swipe to view more ↔</div>
         </div>
     </section>
 
@@ -275,10 +173,13 @@
             <div class="contact-card reveal">
                 <div class="contact-info">
                     <h2>Ready to <br><span class="text-gradient-alt">Feast?</span></h2>
-                    <p>Open daily from <strong>8:00 AM – 10:00 PM</strong>. Takeaway only.</p>
+                    <p>Open daily from <br> <strong>Morning: 7:00 AM – 2:00 PM <br>Evening: 6:00 PM - 10:00 PM</strong>
+                        <br> Takeaway only.
+                    </p>
                     <h3 class="phone-massive">+91 84960 04096</h3>
                     <div class="contact-buttons mt-4">
-                        <a href="#" onclick="openCart(); return false;" class="btn btn-primary btn-large shadow-glow">Order Online</a>
+                        <a href="#" onclick="openCart(); return false;"
+                            class="btn btn-primary btn-large shadow-glow">Order Online</a>
                         <a href="https://maps.app.goo.gl/SHSNK1bjVZgPxA116" target="_blank"
                             class="btn btn-secondary btn-large">Get Directions</a>
                     </div>
@@ -293,7 +194,7 @@
     <footer>
         <div class="container text-center">
             <img src="images/logo.jpg" alt="Logo" class="footer-logo">
-            <p>© 2026 Trinetra Bhojanalaya. Bold flavors only.</p>
+            <p>© <span id="footerYear">2026</span> Trinetra Bhojanalaya. Bold flavors only.</p>
         </div>
     </footer>
 
@@ -310,7 +211,8 @@
                 <strong>Total:</strong>
                 <strong id="cartTotal">₹0</strong>
             </div>
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Takeaway Only — Pay securely on collection.</p>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Takeaway Only — Pay securely on
+                collection.</p>
             <button class="btn btn-primary btn-large btn-block" onclick="proceedOrder()">Checkout via WhatsApp</button>
             <button class="btn btn-outline btn-block" onclick="clearCart()">Clear Cart</button>
         </div>
@@ -328,6 +230,7 @@
     </div>
 
     <!-- JS -->
+    <script src="js/menuData.js"></script>
     <script src="js/cart.js"></script>
     <script>
         // Animations and dynamic features
@@ -340,20 +243,6 @@
             }
         });
 
-        // Reveal animations
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const revealOnScroll = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        revealElements.forEach(el => revealOnScroll.observe(el));
-
         // Subtle Parallax on Hero elements
         document.addEventListener("mousemove", parallax);
         function parallax(e) {
@@ -364,6 +253,146 @@
                 shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
             });
         }
+
+        // Dynamic Rendering
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update Footer Copyright Year
+            const footerYear = document.getElementById('footerYear');
+            if (footerYear) {
+                footerYear.textContent = new Date().getFullYear();
+            }
+
+            // Set up reveal animation observer first to avoid undefined reference errors
+            const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
+
+            // Render Top Picks (Best Sellers)
+            const bestSellersGrid = document.getElementById("bestSellersGrid");
+            if (bestSellersGrid && typeof MENU_ITEMS !== 'undefined') {
+                const topPicks = MENU_ITEMS.filter(item => item.categories.includes('Top Picks'));
+                bestSellersGrid.innerHTML = topPicks.map((item, idx) => `
+                    <div class="highlight-card reveal fade-up" style="transition-delay: ${idx * 0.1}s;">
+                        <div class="highlight-img">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy">
+                            ${item.badge ? `<div class="highlight-badge">${item.badge}</div>` : ''}
+                        </div>
+                        <div class="highlight-info">
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <div class="highlight-footer">
+                                <span class="highlight-price">₹${item.price}</span>
+                                <div class="qty-action" data-item="${item.id}">
+                                    <button class="btn btn-primary btn-sm btn-add" onclick="increase('${item.id}'); return false;">Add +</button>
+                                    <div class="qty-box" style="display: none;">
+                                        <button onclick="decrease('${item.id}'); return false;">−</button>
+                                        <span class="qty-span" data-item="${item.id}">0</span>
+                                        <button onclick="increase('${item.id}'); return false;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Categories list for dynamic tabs
+            const categories = ["All", "Paratha", "Roti", "Special Puri", "Rice", "Specials"];
+            let activeCategory = "All";
+
+            const menuTabs = document.getElementById("menuTabs");
+            const fullMenuGrid = document.getElementById("fullMenuGrid");
+
+            // Render Tabs
+            if (menuTabs) {
+                menuTabs.innerHTML = categories.map(cat => `
+                    <button class="tab-btn ${cat === activeCategory ? 'active' : ''}" onclick="switchCategory('${cat}', this)">
+                        ${cat}
+                    </button>
+                `).join('');
+            }
+
+            // Function to switch category
+            window.switchCategory = (category, btnElement) => {
+                activeCategory = category;
+
+                // Update active tab styling
+                const tabButtons = menuTabs.querySelectorAll('.tab-btn');
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                btnElement.classList.add('active');
+
+                renderFullMenu();
+            };
+
+            // Render Full Menu function
+            function renderFullMenu() {
+                if (!fullMenuGrid || typeof MENU_ITEMS === 'undefined') return;
+
+                let filteredItems = MENU_ITEMS;
+                if (activeCategory !== "All") {
+                    filteredItems = MENU_ITEMS.filter(item => item.categories.includes(activeCategory));
+                }
+
+                // Generate item cards
+                let html = filteredItems.map((item, idx) => `
+                    <div class="menu-card reveal scale-in active" style="transition-delay: ${idx * 0.05}s;">
+                        <div class="menu-card-img">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        </div>
+                        <div class="menu-card-body">
+                            <h4>${item.name} ${item.badge ? `<span class="badge-mini bg-orange">${item.badge}</span>` : ''}</h4>
+                            <p>${item.description}</p>
+                            <div class="menu-card-bottom">
+                                <span class="price">₹${item.price}</span>
+                                <div class="qty-action" data-item="${item.id}">
+                                    <button class="add-btn btn-add" onclick="increase('${item.id}'); return false;">+</button>
+                                    <div class="qty-box" style="display: none;">
+                                        <button onclick="decrease('${item.id}'); return false;">−</button>
+                                        <span class="qty-span" data-item="${item.id}">0</span>
+                                        <button onclick="increase('${item.id}'); return false;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Append the call to kitchen special card at the end of the grid
+                html += `
+                    <div class="menu-card menu-card-special reveal scale-in active" style="transition-delay: ${filteredItems.length * 0.05}s;">
+                        <div class="special-content">
+                            <h3>Craving Something Specific?</h3>
+                            <p>Give us a call. We prepare fresh batches daily!</p>
+                            <a href="tel:+918496004096" class="btn btn-primary mt-3">Call Kitchen</a>
+                        </div>
+                    </div>
+                `;
+
+                fullMenuGrid.innerHTML = html;
+
+                // Sync current cart state to DOM for the newly rendered cards
+                for (let key in cart) {
+                    updateUI(key);
+                }
+
+                // Re-bind intersection observer for new reveal elements in the grid
+                const revealElements = fullMenuGrid.querySelectorAll('.reveal');
+                revealElements.forEach(el => revealOnScroll.observe(el));
+            }
+
+            // Initial render of full menu
+            renderFullMenu();
+
+
+
+            // Run initial observation
+            document.querySelectorAll('.reveal').forEach(el => revealOnScroll.observe(el));
+        });
     </script>
 </body>
 
