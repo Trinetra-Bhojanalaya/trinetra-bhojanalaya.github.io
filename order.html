@@ -58,77 +58,7 @@
         </p>
 
         <div id="itemsContainer">
-
-            <!-- Chole Bhature -->
-            <div class="order-item">
-                <img src="images/chole_bhature.jpg">
-                <div class="item-info">
-                    <strong>Chole Bhature</strong>
-                    <span>₹40 per piece</span>
-                </div>
-                <div class="qty-box">
-                    <button onclick="decrease('chole')">−</button>
-                    <span id="qty-chole">0</span>
-                    <button onclick="increase('chole')">+</button>
-                </div>
-            </div>
-
-            <!-- Puri Chole -->
-            <div class="order-item">
-                <img src="images/puri_chole.jpg">
-                <div class="item-info">
-                    <strong>Puri Chole</strong>
-                    <span>₹20 per piece</span>
-                </div>
-                <div class="qty-box">
-                    <button onclick="decrease('puri')">−</button>
-                    <span id="qty-puri">0</span>
-                    <button onclick="increase('puri')">+</button>
-                </div>
-            </div>
-
-            <!-- Aloo Paratha -->
-            <div class="order-item">
-                <img src="images/aloo-paratha.jpg">
-                <div class="item-info">
-                    <strong>Aloo Paratha</strong>
-                    <span>₹30 per piece</span>
-                </div>
-                <div class="qty-box">
-                    <button onclick="decrease('aloo')">−</button>
-                    <span id="qty-aloo">0</span>
-                    <button onclick="increase('aloo')">+</button>
-                </div>
-            </div>
-
-            <!-- Gobi Paratha -->
-            <div class="order-item">
-                <img src="images/gobi-paratha.jpg">
-                <div class="item-info">
-                    <strong>Gobi Paratha</strong>
-                    <span>₹40 per piece</span>
-                </div>
-                <div class="qty-box">
-                    <button onclick="decrease('gobi')">−</button>
-                    <span id="qty-gobi">0</span>
-                    <button onclick="increase('gobi')">+</button>
-                </div>
-            </div>
-
-            <!-- Pav Bhaji -->
-            <div class="order-item">
-                <img src="images/pav-bhaji.jpg">
-                <div class="item-info">
-                    <strong>Pav Bhaji</strong>
-                    <span>₹45 per piece</span>
-                </div>
-                <div class="qty-box">
-                    <button onclick="decrease('pav')">−</button>
-                    <span id="qty-pav">0</span>
-                    <button onclick="increase('pav')">+</button>
-                </div>
-            </div>
-
+            <!-- Will be dynamically populated from js/menuData.js -->
         </div>
 
         <!-- CART BUTTON -->
@@ -161,7 +91,37 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/menuData.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("itemsContainer");
+            if (container && typeof MENU_ITEMS !== 'undefined') {
+                container.innerHTML = MENU_ITEMS.map(item => `
+                    <div class="order-item">
+                        <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        <div class="item-info">
+                            <strong>${item.name}</strong>
+                            <span>₹${item.price}</span>
+                        </div>
+                        <div class="qty-action" data-item="${item.id}">
+                            <button class="btn btn-primary btn-sm btn-add" onclick="increase('${item.id}'); return false;">Add +</button>
+                            <div class="qty-box" style="display: none;">
+                                <button onclick="decrease('${item.id}'); return false;">−</button>
+                                <span class="qty-span" data-item="${item.id}">0</span>
+                                <button onclick="increase('${item.id}'); return false;">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Sync current cart state to DOM
+                for (let key in cart) {
+                    updateUI(key);
+                }
+            }
+        });
+    </script>
 
 
 </body>
