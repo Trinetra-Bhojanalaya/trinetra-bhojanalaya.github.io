@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trinetra-bhojanalaya.github.io/sitemap.xml
