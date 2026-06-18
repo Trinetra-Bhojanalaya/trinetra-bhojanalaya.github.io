@@ -1,0 +1,62 @@
+/* Order Page List */
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff5e6;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.order-item img {
+    width: 70px;
+    height: 55px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.item-info strong {
+    display: block;
+    font-size: 16px;
+}
+
+.qty-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-box button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.qty-box span {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Cart Button */
+.cart-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    margin-top: 10px;
+    font-weight: 600;
+}
