@@ -1,77 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Online – Trinetra Bhojanalaya Satvik Restaurant</title>
-    <meta name="description" content="Order Satvik North Indian dishes (Chole Bhature, Pav Bhaji, Parathas) from Trinetra Bhojanalaya in Medahalli, Bangalore. Dine‑in & takeaway available.">
+    <title>Order Online – Trinetra Bhojanalaya Pure Satvik Restaurant Bangalore</title>
+    <meta name="description" content="Place your Satvik North Indian takeaway order online at Trinetra Bhojanalaya in Medahalli, Bangalore. Freshly prepared, onion and garlic-free dishes.">
     <link rel="canonical" href="https://trinetra-bhojanalaya.github.io/order.html">
     <meta property="og:title" content="Order Online – Trinetra Bhojanalaya">
-    <meta property="og:description" content="Quickly order Satvik dishes from Medahalli, Bangalore. No onion, no garlic.">
+    <meta property="og:description" content="Confirm your cart items and send your takeaway order directly to us via WhatsApp. Pure Satvik food cooked fresh.">
     <meta property="og:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
     <meta property="og:url" content="https://trinetra-bhojanalaya.github.io/order.html">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Order Online – Trinetra Bhojanalaya">
-    <meta name="twitter:description" content="Satvik North Indian food delivery (takeaway) in Medahalli, Bangalore.">
-    <meta name="twitter:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Trinetra Bhojanalaya",
-      "url": "https://trinetra-bhojanalaya.github.io/order.html",
-      "telephone": "+91 84960 04096",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Near Big Day, Parvathinagar",
-        "addressLocality": "Medahalli",
-        "addressRegion": "Karnataka",
-        "postalCode": "560049",
-        "addressCountry": "IN"
-      },
-      "servesCuisine": ["North Indian", "Satvik"],
-      "openingHoursSpecification": [
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:00", "closes": "14:00"},
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "18:00", "closes": "22:00"}
-      ]
-    }
-    </script>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header class="premium-header">
-        <nav class="container">
-            <div class="logo">Trinetra Bhojanalaya</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="order.html" class="active">Order Online</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="container">
-        <section class="menu-hero">
-            <h1>Premium Satvik Experience</h1>
-            <p>Pure, no-onion, no-garlic delicacies delivered to you.</p>
-        </section>
-        
-        <div id="menu-container" class="grid-layout">
-            <!-- Menu items injected by menuData.js -->
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <img src="images/logo.jpg" alt="Logo">
+                </picture>
+                <span class="brand-full">Trinetra Bhojanalaya</span>
+                <span class="brand-short">Trinetra Bhojanalaya</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="order.html" class="active">Order Online</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+            <a href="tel:+918496004096" class="btn btn-outline nav-cta">Call Now</a>
+            <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
+    </nav>
 
-        <aside id="cart-sidebar" class="cart-premium">
-            <h2>Your Order</h2>
-            <div id="cart-items"></div>
-            <button id="checkout-btn" class="btn-primary">Proceed to Checkout</button>
-        </aside>
+    <!-- CONTENT WRAPPER -->
+    <main class="container" style="padding-top: 160px; padding-bottom: 80px;">
+        <div class="faq-container">
+            <h1 class="section-title text-center" style="margin-bottom: 8px;">Your <span class="text-gradient">Order</span></h1>
+            <p class="section-desc text-center" style="margin-bottom: 48px;">Review your items and complete your order via WhatsApp.</p>
+            
+            <div id="orderContainer">
+                <!-- Dynamically populated from JS -->
+            </div>
+        </div>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2023 Trinetra Bhojanalaya. All Rights Reserved.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container text-center">
+            <picture>
+                <source srcset="images/logo.webp" type="image/webp">
+                <img src="images/logo.jpg" alt="Trinetra Bhojanalaya Logo" class="footer-logo" loading="lazy">
+            </picture>
+            <nav>
+                <a href="index.html">Home</a> |
+                <a href="menu.html">Menu</a> |
+                <a href="order.html">Order Online</a> |
+                <a href="about.html">About Us</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="reviews.html">Reviews</a> |
+                <a href="gallery.html">Gallery</a>
+            </nav>
+            <p>© <span id="footerYear"></span> Trinetra Bhojanalaya. Bold flavors only.</p>
+        </div>
     </footer>
 
+    <!-- JS -->
     <script src="js/menuData.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const footerYear = document.getElementById('footerYear');
+            if (footerYear) {
+                footerYear.textContent = new Date().getFullYear();
+            }
+        });
+
+        // Reactive Page Renderer
+        function renderOrderPage() {
+            const orderContainer = document.getElementById("orderContainer");
+            if (!orderContainer || typeof MENU_ITEMS === 'undefined' || typeof cart === 'undefined') return;
+
+            let total = 0;
+            let itemsHtml = "";
+            let hasItems = false;
+
+            MENU_ITEMS.forEach(item => {
+                const qty = cart[item.id] || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    const subtotal = qty * item.price;
+                    total += subtotal;
+
+                    itemsHtml += `
+                        <div class="order-row">
+                            <div class="order-row-info">
+                                <img src="${item.image}" alt="${item.name}">
+                                <div class="order-item-detail">
+                                    <h4>${item.name}</h4>
+                                    <div class="price-each">₹${item.price} each</div>
+                                </div>
+                            </div>
+                            <div class="order-row-actions">
+                                <div class="qty-action" data-item="${item.id}">
+                                    <div class="qty-box" style="display: flex;">
+                                        <button onclick="decrease('${item.id}'); return false;">−</button>
+                                        <span class="qty-span" data-item="${item.id}">${qty}</span>
+                                        <button onclick="increase('${item.id}'); return false;">+</button>
+                                    </div>
+                                </div>
+                                <div class="item-subtotal">₹${subtotal}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (hasItems) {
+                orderContainer.innerHTML = `
+                    <div class="order-box reveal active">
+                        <div class="order-items-list">
+                            ${itemsHtml}
+                        </div>
+                        <div class="order-summary-card">
+                            <div class="order-summary-row">
+                                <span>Total Amount:</span>
+                                <span>₹${total}</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:14px; margin-bottom:24px; text-align:center;">Takeaway Only — Send order details via WhatsApp. Pay on collection.</p>
+                            <button class="btn btn-primary btn-large btn-block" onclick="proceedOrder()">Send Order to WhatsApp</button>
+                            <button class="btn btn-outline btn-block" onclick="clearCart()">Clear All Items</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                orderContainer.innerHTML = `
+                    <div class="order-box order-empty-state reveal active">
+                        <span class="icon">🛒</span>
+                        <h3>Your Cart is Empty</h3>
+                        <p>Browse our menu and select fresh, tasty Satvik dishes to place your takeaway order.</p>
+                        <a href="menu.html" class="btn btn-primary shadow-glow">Browse Menu</a>
+                    </div>
+                `;
+            }
+        }
+
+        // Hamburger mobile toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
