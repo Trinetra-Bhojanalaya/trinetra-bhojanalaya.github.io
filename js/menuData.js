@@ -6,7 +6,7 @@ const MENU_ITEMS = [
         categories: ['Top Picks', 'Specials'],
         description: 'Fluffy bhature served with spicy chole.',
         badge: '#1 Best Seller',
-        image: 'images/chole_bhature.jpg'
+        image: 'images/chole_bhature.webp'
     },
     {
         id: 'pav',
@@ -15,7 +15,7 @@ const MENU_ITEMS = [
         categories: ['Top Picks', 'Specials'],
         description: 'Buttered pav with flavorful bhaji.',
         badge: 'Must Try',
-        image: 'images/pav-bhaji.jpg'
+        image: 'images/pav-bhaji.webp'
     },
     {
         id: 'pasta',
@@ -24,7 +24,7 @@ const MENU_ITEMS = [
         categories: ['Top Picks', 'Specials'],
         description: 'Creamy white sauce pasta with veggies.',
         badge: 'New',
-        image: 'images/pasta.jpeg'
+        image: 'images/pasta.webp'
     },
     {
         id: 'thali',
@@ -33,7 +33,7 @@ const MENU_ITEMS = [
         categories: ['Top Picks', 'Rice'],
         description: 'Rice, dal, sabzi, roti and pickle.',
         badge: 'Popular',
-        image: 'images/rice.jpeg'
+        image: 'images/rice.webp'
     },
     {
         id: 'aloo',
@@ -42,7 +42,7 @@ const MENU_ITEMS = [
         categories: ['Paratha'],
         description: 'Stuffed potato paratha with curd.',
         badge: 'Homestyle',
-        image: 'images/aloo-paratha.jpg'
+        image: 'images/aloo-paratha.webp'
     },
     {
         id: 'gobi',
@@ -51,7 +51,7 @@ const MENU_ITEMS = [
         categories: ['Paratha'],
         description: 'Cauliflower-stuffed paratha with curd.',
         badge: 'Spicy 🌶️',
-        image: 'images/gobi-paratha.jpg'
+        image: 'images/gobi-paratha.webp'
     },
     {
         id: 'paneer_paratha',
@@ -60,7 +60,7 @@ const MENU_ITEMS = [
         categories: ['Paratha'],
         description: 'Stuffed potato paratha with curd.',
         badge: 'Popular',
-        image: 'images/aloo-paratha.jpg'
+        image: 'images/aloo-paratha.webp'
     },
     {
         id: 'plain_roti',
@@ -69,7 +69,7 @@ const MENU_ITEMS = [
         categories: ['Roti'],
         description: 'Cauliflower-stuffed paratha with curd.',
         badge: 'Fresh',
-        image: 'images/roti.jpeg'
+        image: 'images/roti.webp'
     },
     {
         id: 'plain_paratha',
@@ -78,7 +78,7 @@ const MENU_ITEMS = [
         categories: ['Roti'],
         description: 'Traditional layered flatbread cooked fresh.',
         badge: '',
-        image: 'images/roti.jpeg'
+        image: 'images/roti.webp'
     },
     {
         id: 'puri',
@@ -87,7 +87,7 @@ const MENU_ITEMS = [
         categories: ['Roti'],
         description: 'Crispy puri served with flavorful chole.',
         badge: '',
-        image: 'images/puri_chole.jpg'
+        image: 'images/puri_chole.webp'
     },
     {
         id: 'dal_puri',
@@ -96,7 +96,7 @@ const MENU_ITEMS = [
         categories: ['Special Puri'],
         description: 'Stuffed dal puri with chole and salad.',
         badge: 'Special',
-        image: 'images/puri_chole.jpg'
+        image: 'images/puri_chole.webp'
     },
     {
         id: 'paneer_puri',
@@ -105,7 +105,7 @@ const MENU_ITEMS = [
         categories: ['Special Puri'],
         description: 'Paneer-stuffed puri served with chole.',
         badge: 'Premium',
-        image: 'images/puri_chole.jpg'
+        image: 'images/puri_chole.webp'
     },
     {
         id: 'dal_rice',
@@ -114,7 +114,7 @@ const MENU_ITEMS = [
         categories: ['Rice'],
         description: 'Classic comforting yellow dal served over steamed rice.',
         badge: 'Comfort',
-        image: 'images/rice.jpeg'
+        image: 'images/rice.webp'
     },
     {
         id: 'rajma_rice',
@@ -123,7 +123,7 @@ const MENU_ITEMS = [
         categories: ['Rice'],
         description: 'Rice served with rajma and pickle.',
         badge: 'Favorite',
-        image: 'images/rice.jpeg'
+        image: 'images/rice.webp'
     },
     {
         id: 'cudi_rice',
@@ -132,7 +132,7 @@ const MENU_ITEMS = [
         categories: ['Rice'],
         description: 'Rice, kadhi pakoda and pickle.',
         badge: 'Traditional',
-        image: 'images/rice.jpeg'
+        image: 'images/rice.webp'
     },
     {
         id: 'veg_pulao',
@@ -141,6 +141,6 @@ const MENU_ITEMS = [
         categories: ['Rice'],
         description: 'Aromatic rice cooked with vegetables.',
         badge: 'Aromatic',
-        image: 'images/pulao.jpeg'
+        image: 'images/pulao.webp'
     }
 ];

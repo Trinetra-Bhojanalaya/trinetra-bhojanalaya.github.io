@@ -3,11 +3,27 @@ const itemNames = {};
 let cart = {};
 
 if (typeof MENU_ITEMS !== 'undefined') {
+    // Load cart from localStorage
+    let savedCart = {};
+    try {
+        savedCart = JSON.parse(localStorage.getItem('tb_cart')) || {};
+    } catch(e) {
+        console.error("Error reading localStorage", e);
+    }
+
     MENU_ITEMS.forEach(item => {
         prices[item.id] = item.price;
         itemNames[item.id] = item.name;
-        cart[item.id] = 0;
+        cart[item.id] = typeof savedCart[item.id] === 'number' ? savedCart[item.id] : 0;
     });
+}
+
+function saveCart() {
+    try {
+        localStorage.setItem('tb_cart', JSON.stringify(cart));
+    } catch(e) {
+        console.error("Error writing localStorage", e);
+    }
 }
 
 function updateUI(item) {
@@ -32,32 +48,58 @@ function updateUI(item) {
     
     updateCartDrawer();
     updateDockIndicator();
+    if (typeof renderOrderPage === 'function') {
+        renderOrderPage();
+    }
 }
 
-function increase(item) { cart[item]++; updateUI(item); }
-function decrease(item) { if (cart[item] > 0) { cart[item]--; updateUI(item); } }
+function increase(item) { 
+    cart[item]++; 
+    saveCart(); 
+    updateUI(item); 
+}
+
+function decrease(item) { 
+    if (cart[item] > 0) { 
+        cart[item]--; 
+        saveCart(); 
+        updateUI(item); 
+    } 
+}
 
 function openCart() {
-    document.getElementById("cartDrawer").classList.add("open");
-    document.getElementById("overlay").classList.add("overlay-active");
+    const drawer = document.getElementById("cartDrawer");
+    const overlay = document.getElementById("overlay");
+    if (drawer) drawer.classList.add("open");
+    if (overlay) overlay.classList.add("overlay-active");
 }
 
 function closeCart() {
-    document.getElementById("cartDrawer").classList.remove("open");
-    document.getElementById("overlay").classList.remove("overlay-active");
+    const drawer = document.getElementById("cartDrawer");
+    const overlay = document.getElementById("overlay");
+    if (drawer) drawer.classList.remove("open");
+    if (overlay) overlay.classList.remove("overlay-active");
 }
 
-document.getElementById("overlay").addEventListener("click", closeCart);
+const overlayEl = document.getElementById("overlay");
+if (overlayEl) {
+    overlayEl.addEventListener("click", closeCart);
+}
 
 function clearCart() {
     for (let item in cart) {
         cart[item] = 0;
-        updateUI(item);
+    }
+    saveCart();
+    if (typeof MENU_ITEMS !== 'undefined') {
+        MENU_ITEMS.forEach(item => updateUI(item.id));
     }
 }
 
 function updateCartDrawer() {
     const cartItemsDiv = document.getElementById("cartItems");
+    if (!cartItemsDiv) return;
+    
     cartItemsDiv.innerHTML = "";
     let total = 0;
     
@@ -80,16 +122,31 @@ function updateCartDrawer() {
         cartItemsDiv.innerHTML = `<p style="color:#9CA3AF; text-align:center; margin-top: 40px;">Your cart is empty.</p>`;
     }
     
-    document.getElementById("cartTotal").textContent = `₹${total}`;
+    const cartTotalVal = document.getElementById("cartTotal");
+    if (cartTotalVal) {
+        cartTotalVal.textContent = `₹${total}`;
+    }
 }
 
 function updateDockIndicator() {
     let count = Object.values(cart).reduce((a, b) => a + b, 0);
     const dockText = document.querySelector('.dock-order .text');
+    if (dockText) {
+        if (count > 0) {
+            dockText.textContent = `View Cart (${count})`;
+        } else {
+            dockText.textContent = `Order via WhatsApp`;
+        }
+    }
+}
+
+function handleDockClick(event) {
+    if (event) event.preventDefault();
+    let count = Object.values(cart).reduce((a, b) => a + b, 0);
     if (count > 0) {
-        dockText.textContent = `View Cart (${count})`;
+        openCart();
     } else {
-        dockText.textContent = `Order Now`;
+        window.open("https://wa.me/918496004096?text=Hello%20Trinetra%20Bhojanalaya%20I%20would%20like%20to%20order", "_blank");
     }
 }
 
@@ -100,7 +157,7 @@ function proceedOrder() {
        return;
     }
 
-    let msg = "Hello Trinetra Bhojanalaya! I'd like to order:\n\n";
+    let msg = "Hello Trinetra Bhojanalaya! I'd like to place a takeaway order:\n\n";
     let total = 0;
     
     for (let item in cart) {
@@ -115,5 +172,14 @@ function proceedOrder() {
     window.location.href = `https://wa.me/918496004096?text=${encodeURIComponent(msg)}`;
 }
 
-// Initial hydration
-updateCartDrawer();
+function syncCartUI() {
+    if (typeof MENU_ITEMS !== 'undefined') {
+        MENU_ITEMS.forEach(item => updateUI(item.id));
+    }
+}
+
+// Hydrate UI once DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    syncCartUI();
+});
+
