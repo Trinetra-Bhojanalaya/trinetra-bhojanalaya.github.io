@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD2B3KNNN9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FD2B3KNNN9');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Online – Trinetra Bhojanalaya Pure Satvik Restaurant Bangalore</title>
-    <meta name="description" content="Place your Satvik North Indian takeaway order online at Trinetra Bhojanalaya in Medahalli, Bangalore. Freshly prepared, onion and garlic-free dishes.">
+    <meta name="description"
+        content="Place your Satvik North Indian takeaway order online at Trinetra Bhojanalaya in Medahalli, Bangalore. Freshly prepared, onion and garlic-free dishes.">
     <link rel="canonical" href="https://trinetra-bhojanalaya.github.io/order.html">
     <meta property="og:title" content="Order Online – Trinetra Bhojanalaya">
-    <meta property="og:description" content="Confirm your cart items and send your takeaway order directly to us via WhatsApp. Pure Satvik food cooked fresh.">
+    <meta property="og:description"
+        content="Confirm your cart items and send your takeaway order directly to us via WhatsApp. Pure Satvik food cooked fresh.">
     <meta property="og:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
     <meta property="og:url" content="https://trinetra-bhojanalaya.github.io/order.html">
     <meta property="og:type" content="website">
@@ -51,9 +62,11 @@
     <!-- CONTENT WRAPPER -->
     <main class="container" style="padding-top: 160px; padding-bottom: 80px;">
         <div class="faq-container">
-            <h1 class="section-title text-center" style="margin-bottom: 8px;">Your <span class="text-gradient">Order</span></h1>
-            <p class="section-desc text-center" style="margin-bottom: 48px;">Review your items and complete your order via WhatsApp.</p>
-            
+            <h1 class="section-title text-center" style="margin-bottom: 8px;">Your <span
+                    class="text-gradient">Order</span></h1>
+            <p class="section-desc text-center" style="margin-bottom: 48px;">Review your items and complete your order
+                via WhatsApp.</p>
+
             <div id="orderContainer">
                 <!-- Dynamically populated from JS -->
             </div>
@@ -162,13 +175,13 @@
         }
 
         // Hamburger mobile toggle
-        document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('navToggle').addEventListener('click', function () {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.addEventListener('click', function() {
+        document.querySelectorAll('.nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
                 const navLinks = document.querySelector('.nav-links');
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');

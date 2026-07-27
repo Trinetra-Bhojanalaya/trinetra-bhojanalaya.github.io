@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD2B3KNNN9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FD2B3KNNN9');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu – Trinetra Bhojanalaya • Pure Satvik Restaurant Bangalore</title>
-    <meta name="description" content="Browse our complete 100% Pure Satvik menu (no onion, no garlic). Try our signature Chole Bhature, Pav Bhaji, Aloo Parathas, and more in Medahalli.">
+    <meta name="description"
+        content="Browse our complete 100% Pure Satvik menu (no onion, no garlic). Try our signature Chole Bhature, Pav Bhaji, Aloo Parathas, and more in Medahalli.">
     <link rel="canonical" href="https://trinetra-bhojanalaya.github.io/menu.html">
     <meta property="og:title" content="Our Menu – Trinetra Bhojanalaya">
-    <meta property="og:description" content="View the complete 100% Pure Satvik menu. Freshly prepared North Indian dishes without onion or garlic.">
+    <meta property="og:description"
+        content="View the complete 100% Pure Satvik menu. Freshly prepared North Indian dishes without onion or garlic.">
     <meta property="og:image" content="https://trinetra-bhojanalaya.github.io/images/chole_bhature.jpg">
     <meta property="og:url" content="https://trinetra-bhojanalaya.github.io/menu.html">
     <meta property="og:type" content="website">
@@ -53,7 +64,8 @@
         <div class="container">
             <div class="badge-pill mb-4 glow-pulse">🌿 100% PURE SATVIK (NO ONION, NO GARLIC)</div>
             <h1 class="section-title">The <span class="text-gradient">Complete Menu</span></h1>
-            <p class="section-desc" style="margin-bottom: 0;">Authentic, bold North Indian flavors prepared fresh upon order in Medahalli, Bangalore.</p>
+            <p class="section-desc" style="margin-bottom: 0;">Authentic, bold North Indian flavors prepared fresh upon
+                order in Medahalli, Bangalore.</p>
         </div>
     </header>
 
@@ -104,7 +116,8 @@
                 <strong>Total:</strong>
                 <strong id="cartTotal">₹0</strong>
             </div>
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Takeaway Only — Pay securely on collection.</p>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Takeaway Only — Pay securely on
+                collection.</p>
             <button class="btn btn-primary btn-large btn-block" onclick="proceedOrder()">Checkout via WhatsApp</button>
             <button class="btn btn-outline btn-block" onclick="clearCart()">Clear Cart</button>
         </div>
@@ -239,13 +252,13 @@
         });
 
         // Hamburger mobile toggle
-        document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('navToggle').addEventListener('click', function () {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.addEventListener('click', function() {
+        document.querySelectorAll('.nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
                 const navLinks = document.querySelector('.nav-links');
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
